@@ -1,0 +1,44 @@
+
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main class="mt-2 pt-2">
+    <div class="container">
+
+        <!--Section: Cards-->
+        <section class="pt-0">
+
+            <div class="container py-2 my-2">
+                <section class="p-md-1 mx-md-5 text-center text-lg-left">
+                    <h2 class="h1 text-center mb-5"> All Courses</h2>
+      <div class="row">
+                    <div class="col-lg-4 mb-4" *ngFor="let course of courses">
+                      <div class="card text-center">
+                        <div class="card-header white-text red darken-3">
+                          <h4>{{ course.name }}</h4>
+                          <div class="d-flex justify-content-center align-items-end">
+                            <h3 class="mb-0 h3">$15</h3>
+                            <p class="mb-0 ml-2">/ Total</p>
+                          </div>
+                        </div>
+                        <i class="fa fa-book fa-2x pt-5 indigo-text"></i>
+                        <div class="card-body">
+                          <p class="lead font-weight-bold">{{ course.hostInstitution }}</p>
+                          <p class="card-text">{{ course.description }}
+                          </p>
+                          <div class="button">
+                            <button mat-raised-button color="primary" routerLink="/default/coursedetail/{{course.id}}" >Learn more</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+               
+                  </div>
+                </section>
+              </div>
+        </section>
+        <!--Section: Cards-->
+
+    </div>
+</main>
+<!--Main layout-->

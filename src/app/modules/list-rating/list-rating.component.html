@@ -1,0 +1,184 @@
+<!-- <div>
+  <div class='container'>
+    <h2>Rating Trainer</h2>
+    <div class="panel panel-primary">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Rating</th>
+              <th>Rating No.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of trainer">
+              <td>
+                {{item.name}}
+              </td>
+              <td>
+                <app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick($event)'>
+                </app-rating>
+              </td>
+              <td>
+                {{item.rating}} Stars
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p
+      *ngIf="ratingClicked && (itemIdRatingClicked =='skill' || itemIdRatingClicked =='subject' || itemIdRatingClicked =='kindness')">
+      The Trainer {{itemIdRatingClicked}} has been given {{ratingClicked}} stars</p>
+    <h2>Rating Institution</h2>
+    <div class="panel panel-primary">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Rating</th>
+              <th>Rating No.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of institution">
+              <td>
+                {{item.name}}
+              </td>
+              <td>
+                <app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick1($event)'>
+                </app-rating>
+              </td>
+              <td>
+                {{item.rating}} Stars
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p
+      *ngIf="ratingClicked && (itemIdRatingClicked =='property' || itemIdRatingClicked =='equipment' || itemIdRatingClicked =='workspace')">
+      The Trainer {{itemIdRatingClicked}} has been given {{ratingClicked}} stars</p>
+  </div>
+  <div class="button">
+    <button mat-raised-button color="primary" (click)="saveRatings()">Add Ratings</button>
+  </div>
+</div> -->
+<div class="container my-5 py-1" >
+
+  <h2 class="h1 text-center mb-5 green-text"> Evaluate Formation</h2>
+
+  <!--Section: Content-->
+  <section class="text-center">
+
+
+    <!--Grid row-->
+    <div class="row">
+
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-12 mb-4" *ngFor="let item of trainer">
+
+        <a href="" class="waves-effect waves-light"><img src="{{item.img}}" class="img-fluid img3" alt=""></a>
+
+        <div class="card">
+          <div class="card-body">
+
+            <h3 >
+              <span class="orange-text">
+                <strong>{{item.name}}</strong>
+              </span>
+              
+            </h3>
+
+
+            <div class="amber-text fa-xs mb-1">
+              <app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick($event)'>
+              </app-rating>
+
+            </div>
+            <h3 >
+              <span class="blue-text">
+                <strong>{{item.rating}} Stars</strong>
+              </span>
+              
+            </h3>
+
+          </div>
+        </div>
+
+      
+
+
+      </div>
+      <!--Grid column-->
+      <div class=" col-md-12 text-center">
+      <p
+      *ngIf="ratingClicked && (itemIdRatingClicked =='skill' || itemIdRatingClicked =='subject' || itemIdRatingClicked =='kindness')"
+       class="font-weight-bold"><a href="#">{{itemIdRatingClicked}}</a>  has been given  <a href="#">{{ratingClicked}} stars</a></p>
+
+   
+      </div>
+    </div>
+
+    <!--Grid row-->
+    <div class="row">
+
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-12 mb-4" *ngFor="let item of institution">
+
+        <a href="" class="waves-effect waves-light"><img src="{{item.img}}" class="img-fluid img3" alt=""></a>
+        <div class="card">
+          <div class="card-body">
+            <div class="mb-1">
+              <h3 >
+                <span class="orange-text">
+                  <strong>{{item.name}}</strong>
+                </span>
+                
+              </h3>
+            
+            </div>
+
+
+            <div class="amber-text fa-xs mb-1">
+              <app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick1($event)'>
+              </app-rating>
+            </div>
+            <h3 >
+              <span class="blue-text">
+                <strong>{{item.rating}} Stars</strong>
+              </span>
+              
+            </h3>
+          </div>
+       
+        </div>
+
+
+
+      </div>
+      <!--Grid column-->
+
+    
+
+    </div>
+    <!--Grid row-->
+    <p
+      *ngIf="ratingClicked && (itemIdRatingClicked =='property' || itemIdRatingClicked =='equipment' || itemIdRatingClicked =='workspace')"
+      class="font-weight-bold"><a href="#">{{itemIdRatingClicked}}</a>  has been given  <a href="#">{{ratingClicked}} stars</a></p>
+
+  
+    <div class=" col-md-12 text-center white-text">
+
+      <a class="btn btn-info btn-md"  role="button" (click)="saveRatings()">Add Ratings</a>
+
+    </div>
+    
+  </section>
+  <!--Section: Content-->
+
+
+</div>

@@ -1,0 +1,217 @@
+  <!-- Navigation -->
+  <header>
+    
+    <style>
+     .navbar .navbar-brand img {
+      height: 20px;
+    }
+
+    .navbar .navbar-brand {
+      padding-top: 0;
+    }
+
+    .navbar .nav-link {
+      color: #444343!important;
+    }
+
+    .navbar .button-collapse {
+      padding-top: 1px;
+    }
+
+    .card-intro .card-body {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-radius: 0 !important;
+    }
+
+    .card-intro .card-body h1 {
+      margin-bottom: 0;
+    }
+
+    .card-intro {
+      margin-top: 64px;
+    }
+
+    @media (max-width: 450px) {
+      .card-intro {
+        margin-top: 56px;
+      }
+    }
+
+    @media (min-width: 1441px) {
+      .card-intro {
+        padding-left: 0 !important;
+      }
+    }
+    </style>
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+      <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
+          <img src="../../../../assets/elearning-logo.png" alt="Logo" style="
+          width: 185px;
+          height: 45px;
+      ">
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+     
+ 
+   
+        </div>
+
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+   
+
+  </header>
+  <!-- Navigation -->
+<div class="mt-4"style="background-image: url('../../../../assets/background.jfif'); background-repeat: no-repeat; background-size: cover;">
+  <!-- Mask & flexbox options-->
+   <!-- Mask & flexbox options-->
+   <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+    <div class="container my-5 px-0 z-depth-1">
+
+      <!--Section: Content-->
+      <section
+      >
+        <form class="my-5 mx-md-5"  name="form" (ngSubmit)="onSubmit()">
+    
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+              <!-- Material form login -->
+              <div class="card">
+    
+                <!--Card content-->
+                <div class="card-body">
+    
+                  <!-- Form -->
+    
+                    <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Log In</h3>
+    
+                    <!-- Name -->
+                    <input type="text" name="username" [(ngModel)]="form.username" class="form-control mb-4" placeholder="Username">
+    
+                    <!-- Email -->
+                    <input type="password" name="password" [(ngModel)]="form.password" class="form-control" placeholder="Password">
+                    <small id="passwordHelpBlock" class="form-text text-right blue-text">
+                      <a href="">Recover Password</a>
+                    </small>
+    
+                    <div class="text-center">
+                      <button  routerLink="/signup" type="button" class="btn btn-outline-orange btn-rounded my-4 waves-effect">Register</button>
+                      <button  type="submit" class="btn btn-outline-orange btn-rounded my-4 waves-effect">Login</button>
+               
+                    </div>
+
+                    <p *ngIf="error" class="error">
+                      {{ errorMessage }}
+                    </p>
+                    
+                  
+                  <!-- Form -->
+    
+                </div>
+    
+              </div>
+              <!-- Material form login -->
+            </div>
+          </div>
+    
+        </form>
+    
+      </section>
+      <!--Section: Content-->
+    
+    
+    </div>
+    
+    
+
+  </div>
+  <!-- Mask & flexbox options-->
+
+</div>
+<!--Footer-->
+<footer class="page-footer text-center font-small " style="background-color: #09196f !important;">
+
+  <div class="rgba-stylish-strong">
+
+    <!--Call to action-->
+    <div class="pt-4">
+      <a class="btn btn-outline-white"
+        href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank" role="button">Download
+        MDB
+        <i class="fas fa-download ml-2"></i>
+      </a>
+      <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/"
+        target="_blank" role="button">Start
+        free tutorial
+        <i class="fas fa-graduation-cap ml-2"></i>
+      </a>
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+      <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+        <i class="fab fa-facebook-f mr-3"></i>
+      </a>
+
+      <a href="https://twitter.com/MDBootstrap" target="_blank">
+        <i class="fab fa-twitter mr-3"></i>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+        <i class="fab fa-youtube mr-3"></i>
+      </a>
+
+      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+        <i class="fab fa-google-plus-g mr-3"></i>
+      </a>
+
+      <a href="https://dribbble.com/mdbootstrap" target="_blank">
+        <i class="fab fa-dribbble mr-3"></i>
+      </a>
+
+      <a href="https://pinterest.com/mdbootstrap" target="_blank">
+        <i class="fab fa-pinterest mr-3"></i>
+      </a>
+
+      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+        <i class="fab fa-github mr-3"></i>
+      </a>
+
+      <a href="http://codepen.io/mdbootstrap/" target="_blank">
+        <i class="fab fa-codepen mr-3"></i>
+      </a>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+    </div>
+    <!--/.Copyright-->
+
+  </div>
+
+</footer>
+<!--Footer-->

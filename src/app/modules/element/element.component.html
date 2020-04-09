@@ -1,0 +1,31 @@
+<br>
+<form>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationDefault01">Sujet</label>
+            <input type="text" class="form-control" id="validationDefault01" name="subject" [(ngModel)]="element.subject" placeholder="subject"
+                required>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="validationDefault02">Dure</label>
+            <input type="number" class="form-control" id="validationDefault02" [(ngModel)]="element.duration" name ="duration" placeholder="Duration" value="DH"
+                required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationDefault03">Prix</label>
+            <input type="number" class="form-control" id="validationDefault03" [(ngModel)]="element.price" (change)="firstComponentFunction()" name ="price" placeholder="Price" value="DH"
+                required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="startiong_date">Choose strating date</label>
+            <input type="date" id="startingDate" class="form-control" name="startingDate" value=""  [(ngModel)]="element.startingDate" required/>
+          </div>
+       
+    </div>
+
+</form>
+<br>
+
+<mat-divider></mat-divider>
+

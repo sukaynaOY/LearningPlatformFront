@@ -1,0 +1,77 @@
+<mat-nav-list *ngIf="roles.includes('ROLE_FORMATEUR')">
+    <div class="profile-card">
+        <div class="header">
+            <div class=" active d-flex justify-content-start align-items-center py-3">
+                <img src="../../../../assets/formation.png" class="rounded-circle z-depth-0" width="40" alt="avatar image">
+                <div class="d-flex flex-column pl-3">
+                  <h2 class="font-weight-normal mb-0">{{tokenStorageService.getUser().username}}</h2>
+                  <h4 class="font-weight-normal mb-0">Formateur</h4>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Pages</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/default/dash">Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/default/formation">Gestion Formation</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/element">Gestion Elements</a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Tools</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+        <mat-icon>import_contacts</mat-icon>
+        Contacts
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+        <mat-icon>contact_phone</mat-icon>
+        Leads
+    </a>
+
+</mat-nav-list>
+<!-- Side bar pour le benefeciare -->
+<mat-nav-list *ngIf="roles.includes('ROLE_BENEFICIARE')">
+    <div class="profile-card">
+        <div class="header">
+            <div class=" active d-flex justify-content-start align-items-center py-3">
+                <img src="../../../../assets/student.png" class="rounded-circle z-depth-0" width="40" alt="avatar image">
+                <div class="d-flex flex-column pl-3">
+                  <h2 class="font-weight-normal mb-0">{{tokenStorageService.getUser().username}}</h2>
+                  <h4 class="font-weight-normal mb-0">benefeciare</h4>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Pages</h2>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/default/course">Formation Disponible</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/default/mesformation">Mes formation</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/default/list">Evaluer les formations</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/element"></a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles"></a>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Tools</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+        <mat-icon>import_contacts</mat-icon>
+        Contacts
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+        <mat-icon>contact_phone</mat-icon>
+        Leads
+    </a>
+
+</mat-nav-list>
+

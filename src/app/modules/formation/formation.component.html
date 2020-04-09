@@ -1,0 +1,177 @@
+<!-- <form>
+    <div class="form-row">
+      
+     
+    
+      <p>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault01">Name</label>
+        <input type="text" class="form-control" id="validationDefault01" placeholder="Name" name="name" [(ngModel)]="training.name" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault07">Description</label>
+        <input type="text" class="form-control" id="validationDefault07" placeholder="Description" name="description" [(ngModel)]="training.description"
+          required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">hostInstitution</label>
+        <input type="text" class="form-control" id="validationDefault02" placeholder="Institut" name="hostInstitution" [(ngModel)]="training.hostInstitution"
+          required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="hours">Hours</label>
+        <input type="text" class="form-control" id="hours" placeholder="Hours" name="hours" [(ngModel)]="training.hours"
+          required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="minNumber">Nombre de place min</label>
+        <input type="number" class="form-control" id="minNumber" name="minNumber" [(ngModel)]="training.minNumber" placeholder="Nombre de place min" value=""
+          required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="maxNumber">Nombre de place max</label>
+        <input type="number" class="form-control" id="maxNumber" name="maxNumber" [(ngModel)]="training.maxNumber" placeholder="Nombre de place max" value=""
+          required>
+      </div>
+
+      <button class="btn btn-primary btn-sm" (click)="addElement()">add element</button>
+      
+   
+    </div>
+  
+    <mat-divider></mat-divider>
+    <p *ngFor="let element of training.elements ">
+      <app-element [element]="element" ></app-element>
+    </p>
+  </form>
+  <br>
+  <button class="btn btn-primary btn-sm" (click)="saveTraining()">test</button> -->
+
+<section class="text-center dark-grey-text ">
+
+  <div class="card">
+    <div class="card-body rounded-top border-top p-5">
+      <h3 class="font-weight-bold my-4">Ajouter une Formation et elements</h3>
+
+      <!-- Toggle add-->
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Donnes
+            </mat-panel-title>
+            <mat-panel-description>
+              Entrer les informations 
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!-- Section heading -->
+          <h3 class="font-weight-bold my-4">Ajouter une Formation</h3>
+          <form>
+            <div class="form-row">
+              <p>
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault01">Nom Formation</label>
+                  <input type="text" class="form-control" id="validationDefault01" placeholder="Name" name="name"
+                    [(ngModel)]="training.name" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault07">Description</label>
+                  <input type="text" class="form-control" id="validationDefault07" placeholder="Description"
+                    name="description" [(ngModel)]="training.description" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault02">hostInstitution</label>
+                  <input type="text" class="form-control" id="validationDefault02" placeholder="Institut"
+                    name="hostInstitution" [(ngModel)]="training.hostInstitution" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="hours">Hours</label>
+                  <input type="text" class="form-control" id="hours" placeholder="Hours" name="hours"
+                    [(ngModel)]="training.hours" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="minNumber">Nombre de place min</label>
+                  <input type="number" class="form-control" id="minNumber" name="minNumber"
+                    [(ngModel)]="training.minNumber" placeholder="Nombre de place min" value="" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="maxNumber">Nombre de place max</label>
+                  <input type="number" (change)="calculatPrice()" class="form-control" id="maxNumber" name="maxNumber"
+                    [(ngModel)]="training.maxNumber" placeholder="Nombre de place max" value="" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="startiong_date">Choose strating date</label>
+                  <input type="date" id="startingDate" class="form-control" name="startingDate"  value=""  [(ngModel)]="training.startingDate" required/>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="startiong_date">Choose ending date</label>
+                  <input type="date" id="endingDate" name="endingDate" class="form-control" value=""  [(ngModel)]="training.endingDate" required/>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="startiong_date">Prix Total De La Formation</label>
+                  {{training.price}}
+                </div>
+                <button mat-raised-button color="primary" class="mr-2" target="_blank" (click)="addElement()">add
+                  element</button>
+                <button mat-raised-button color="warn" target="_blank" (click)="deleteElement()">delete element</button>
+            </div>
+            <mat-divider></mat-divider>
+
+            <p *ngFor="let item of [].constructor(elementSize); let i = index">
+              <app-element [element]="elements[i]"></app-element>
+            </p>
+
+
+            <div class="button">
+              <button mat-raised-button color="primary" (click)="saveTraining()">Ajouter formation</button>
+            </div>
+
+          </form>
+          <mat-divider></mat-divider>
+
+
+        </mat-expansion-panel>
+      </mat-accordion>
+
+
+
+
+
+
+
+
+      <!-- Taaaaaaaable -->
+      <h3 class="font-weight-bold my-4">Liste des Formation</h3>
+
+
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+        <div fxFlex="100">
+          
+          <div class="mat-elevation-z8">
+            <table >
+              <tr>
+                <th>id</th>
+              <th>name</th>
+              <th>description</th>
+              <th>host</th>
+              </tr>
+              <tr *ngFor="let course of courses">
+                <td>{{course.id}}</td>
+                <td>{{course.name}}</td>
+                <td>{{course.description}}</td>
+                <td>{{course.hostInstitution}}</td>
+              </tr>
+
+
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
