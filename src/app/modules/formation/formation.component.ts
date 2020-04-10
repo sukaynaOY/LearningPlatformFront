@@ -50,7 +50,7 @@ public isCollapsed = true;
     this.elementSize=0;
     this.training.price = 0;
     this.elements = new Array<Element>();
-    this.getAllAvailableTraining();
+    this.getMyAvailableTraining();
     if (this.eventEmitterService.subsVar==undefined) {    
       this.eventEmitterService.subsVar = this.eventEmitterService.    
       invokeFirstComponentFunction.subscribe((name:string) => {    
@@ -102,6 +102,18 @@ public isCollapsed = true;
     this.dataSource = this.courses;
     console.log(this.courses);
 
+  }
+  getMyAvailableTraining(){
+
+    this.trainingService.getAllMytraining(this.tokenStorage.getUser().id).subscribe(data => {
+      data.forEach(element => {
+        let t = <Training>element;
+        this.courses.push(t);
+      });
+
+    })
+
+    this.dataSource = this.courses;
   }
  calculatPrice(){
    this.training.price=0;
