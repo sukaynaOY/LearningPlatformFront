@@ -30,6 +30,9 @@ export class TrainingService {
   countTraining(){
     return this.http.get(baseUrl + 'countTrainings');
   }
+  getAllMytraining(id): Observable<any> {
+    return this.http.get(`${baseUrl}allMyTrainings/${id}`);
+  }
   countPrice(){
     return this.http.get(baseUrl + 'countPrice');
   }
