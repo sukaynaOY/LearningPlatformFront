@@ -67,118 +67,183 @@
     <button mat-raised-button color="primary" (click)="saveRatings()">Add Ratings</button>
   </div>
 </div> -->
-<div class="container my-5 py-1" >
+<!-- <div *ngFor="let training of myTraining">
+        training Name: {{training.name}}
+    <div *ngFor="let element of training.elements"> Element:{{element.subject}}</div>
 
-  <h2 class="h1 text-center mb-5 green-text"> Evaluate Formation</h2>
+</div> -->
+
+<div class="container my-3 py-3 z-depth-1">
+
 
   <!--Section: Content-->
-  <section class="text-center">
+  <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+      <h2 class="h1 text-center mb-5">Mes formartions</h2>
 
+    <h3 class="font-weight-bold">Course title</h3>
+
+    <!-- <p class="text-muted mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam sapiente molestiae
+      numquam quas, voluptates omnis nulla ea odio quia similique corrupti magnam, doloremque laborum reiciendis
+      doloribus eius optio autem. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> -->
 
     <!--Grid row-->
-    <div class="row">
+    <div *ngFor="let training of courses; let i = index;">
+      <div class="row" >
 
-      <!--Grid column-->
-      <div class="col-lg-4 col-md-12 mb-4" *ngFor="let item of trainer">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-12 mb-lg-0 mb-4">
 
-        <a href="" class="waves-effect waves-light"><img src="{{item.img}}" class="img-fluid img3" alt=""></a>
+          <img src="https://mdbootstrap.com/img/Others/cards.png" class="img-fluid" alt="">
 
-        <div class="card">
-          <div class="card-body">
-
-            <h3 >
-              <span class="orange-text">
-                <strong>{{item.name}}</strong>
-              </span>
-              
-            </h3>
-
-
-            <div class="amber-text fa-xs mb-1">
-              <app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick($event)'>
-              </app-rating>
-
-            </div>
-            <h3 >
-              <span class="blue-text">
-                <strong>{{item.rating}} Stars</strong>
-              </span>
-              
-            </h3>
-
-          </div>
         </div>
+        <!--Grid column-->
 
-      
+        <!--Grid column-->
+        <div class="col-lg-6 col-md-6 mb-lg-0 mb-lg-0 mb-2">
 
+          <h4 class="h4">{{training.name}}</h4>
+
+          <p class="text-muted">{{training.description}}.</p>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        
+        <!--Grid column-->
 
       </div>
-      <!--Grid column-->
-      <div class=" col-md-12 text-center">
-      <p
-      *ngIf="ratingClicked && (itemIdRatingClicked =='skill' || itemIdRatingClicked =='subject' || itemIdRatingClicked =='kindness')"
-       class="font-weight-bold"><a href="#">{{itemIdRatingClicked}}</a>  has been given  <a href="#">{{ratingClicked}} stars</a></p>
+      <div *ngIf="show[i]">
+        <div class="container my-5 py-1" >
 
-   
-      </div>
-    </div>
-
-    <!--Grid row-->
-    <div class="row">
-
-      <!--Grid column-->
-      <div class="col-lg-4 col-md-12 mb-4" *ngFor="let item of institution">
-
-        <a href="" class="waves-effect waves-light"><img src="{{item.img}}" class="img-fluid img3" alt=""></a>
-        <div class="card">
-          <div class="card-body">
-            <div class="mb-1">
-              <h3 >
-                <span class="orange-text">
-                  <strong>{{item.name}}</strong>
-                </span>
-                
-              </h3>
+          <h2 class="h1 text-center mb-5 green-text"> Evaluate Formation</h2>
+        
+          <!--Section: Content-->
+          <section class="text-center">
+        
+        
+            <!--Grid row-->
+            <div class="row">
+        
+              <!--Grid column-->
+              <div class="col-lg-4 col-md-12 mb-4" *ngFor="let item of trainer">
+        
+                <a href="" class="waves-effect waves-light"><img src="{{item.img}}" class="img-fluid img3" alt=""></a>
+        
+                <div class="card">
+                  <div class="card-body">
+        
+                    <h3 >
+                      <span class="orange-text">
+                        <strong>{{item.name}}</strong>
+                      </span>
+                      
+                    </h3>
+        
+        
+                    <div class="amber-text fa-xs mb-1">
+                      <app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick($event)'>
+                      </app-rating>
+        
+                    </div>
+                    <h3 >
+                      <span class="blue-text">
+                        <strong>{{item.rating}} Stars</strong>
+                      </span>
+                      
+                    </h3>
+        
+                  </div>
+                </div>
+        
+              
+        
+        
+              </div>
+              <!--Grid column-->
+              <div class=" col-md-12 text-center">
+              <p
+              *ngIf="ratingClicked && (itemIdRatingClicked =='skill' || itemIdRatingClicked =='subject' || itemIdRatingClicked =='kindness')"
+               class="font-weight-bold"><a href="#">{{itemIdRatingClicked}}</a>  has been given  <a href="#">{{ratingClicked}} stars</a></p>
+        
+           
+              </div>
+            </div>
+        
+            <!--Grid row-->
+            <div class="row">
+        
+              <!--Grid column-->
+              <div class="col-lg-4 col-md-12 mb-4" *ngFor="let item of institution">
+        
+                <a href="" class="waves-effect waves-light"><img src="{{item.img}}" class="img-fluid img3" alt=""></a>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="mb-1">
+                      <h3 >
+                        <span class="orange-text">
+                          <strong>{{item.name}}</strong>
+                        </span>
+                        
+                      </h3>
+                    
+                    </div>
+        
+        
+                    <div class="amber-text fa-xs mb-1">
+                      <app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick1($event)'>
+                      </app-rating>
+                    </div>
+                    <h3 >
+                      <span class="blue-text">
+                        <strong>{{item.rating}} Stars</strong>
+                      </span>
+                      
+                    </h3>
+                  </div>
+               
+                </div>
+        
+        
+        
+              </div>
+              <!--Grid column-->
+        
             
+        
             </div>
-
-
-            <div class="amber-text fa-xs mb-1">
-              <app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick1($event)'>
-              </app-rating>
+            <!--Grid row-->
+            <p
+              *ngIf="ratingClicked && (itemIdRatingClicked =='property' || itemIdRatingClicked =='equipment' || itemIdRatingClicked =='workspace')"
+              class="font-weight-bold"><a href="#">{{itemIdRatingClicked}}</a>  has been given  <a href="#">{{ratingClicked}} stars</a></p>
+        
+          
+            <div class=" col-md-12 text-center white-text">
+        
+              <a class="btn btn-info btn-md"  role="button" (click)="saveRatings(i)" routerLink="/default/mesformation">Add Ratings</a>
+        
             </div>
-            <h3 >
-              <span class="blue-text">
-                <strong>{{item.rating}} Stars</strong>
-              </span>
-              
-            </h3>
-          </div>
-       
+            
+          </section>
+          <!--Section: Content-->
+        
+        
         </div>
+      </div>
+      
+      <div class=" col-md-12 text-center">
 
-
+        <a class="btn btn-info btn-md" (click)="showelement(i)" role="button">afficher element<i class="fa fa-magic ml-1"></i></a>
 
       </div>
-      <!--Grid column-->
-
-    
-
     </div>
+    
     <!--Grid row-->
-    <p
-      *ngIf="ratingClicked && (itemIdRatingClicked =='property' || itemIdRatingClicked =='equipment' || itemIdRatingClicked =='workspace')"
-      class="font-weight-bold"><a href="#">{{itemIdRatingClicked}}</a>  has been given  <a href="#">{{ratingClicked}} stars</a></p>
 
-  
-    <div class=" col-md-12 text-center white-text">
 
-      <a class="btn btn-info btn-md"  role="button" (click)="saveRatings()">Add Ratings</a>
-
-    </div>
-    
   </section>
   <!--Section: Content-->
 
 
 </div>
+

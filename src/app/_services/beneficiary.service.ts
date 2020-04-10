@@ -13,6 +13,11 @@ const httpOptions = {
 })
 export class BeneficiaryService {
 
+  
+  getTrainingTrainer(id):Observable<any> {
+    return this.http.get(`${baseUrl}trainingTrainer/${id}`);
+  }
+
   constructor(private http: HttpClient) { }
 
 
@@ -26,6 +31,9 @@ export class BeneficiaryService {
 
   myTrainings(id):Observable<any>{
     return this.http.get(`${baseUrl}mesFormation/${id}`);
+  }
+  rateTrainings(id):Observable<any>{
+    return this.http.get(`${baseUrl}rateMesFormation/${id}`);
   }
 
   getelements(id) {
