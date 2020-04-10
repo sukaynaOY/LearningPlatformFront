@@ -31,8 +31,8 @@ export class BeneficiaryService {
   getelements(id) {
     return this.http.get(`${baseUrl}getbeneficiaryelememnts/${id}`);
   }
-  delete(id){
-    return this.http.post(baseUrl+'suppElement', id);
+  delete(id,benId){
+    return this.http.post(`${baseUrl}suppElement/${benId}`, id);
   }
 
 }

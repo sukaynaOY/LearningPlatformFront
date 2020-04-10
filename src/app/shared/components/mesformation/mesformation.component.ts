@@ -79,7 +79,7 @@ export class MesformationComponent implements OnInit {
   }
 
   supprimerElement(id){
-    this.beneficiaryService.delete(id).subscribe(data =>{
+    this.beneficiaryService.delete(id,this.tokenStorageService.getUser().id).subscribe(data =>{
       console.log(data)
     })
     console.log(id);
