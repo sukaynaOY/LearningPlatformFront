@@ -1,84 +1,125 @@
-<div >
-   <section class="p-md-3 mx-md-5">
-      <div class="row d-flex justify-content-center">
-         <div class="col-md-6 text-center pink-text">
-            <h2 class="font-weight-bold pb-4">{{currenttraining?.name}}</h2>
-            <i class="far fa-gem fa-6x mb-2"></i>
-            <p class="grey-text pt-4">
-               {{currenttraining?.description}}
-            </p>
-         </div>
-      </div>
-      <hr class="mx-5">
+<div>
+   <div class="container mt-1">
+         <section class="p-md-3 mx-md-5 dark-grey-text">
+            <h2 class="text-center font-weight-bold mb-4 pb-2">Formation  Elements & details</h2>
 
-      <!--Section: Content-->
-      <section class="dark-grey-text">
+      
+             <!-- Grid column -->
+       
+             <div class="row align-items-center">
 
-         <!-- Section heading -->
-         <h3 class="text-center font-weight-bold mb-5">Course curriculum</h3>
+               <!-- Grid column -->
+               <div class="col-lg-5 col-xl-4">
+         
+                 <!-- Featured image -->
+                 <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+                   <img class="img-fluid" src="../../../../../assets/Subject.png" alt="Sample image">
+                   <a>
+                     <div class="mask rgba-white-slight">A propos du cours</div>
+                   </a>
+                 </div>
+         
+               </div>
+               <!-- Grid column -->
+         
+               <!-- Grid column -->
+               <div class="col-lg-7 col-xl-8">
+         
+                 <!-- Post title -->
+                 <h4 class="font-weight-bold mb-3"><strong>{{currenttraining?.name}}</strong></h4>
+                 <!-- Excerpt -->
+                 <p class="dark-grey-text">{{currenttraining?.description}}
+                  .</p>
+                 <!-- Post data -->
+                 <p> <a class="font-weight-bold">Instituation Name :</a> {{currenttraining?.hostInstitution}}
+                 </p>
+                 <p><a class="font-weight-bold"> starting Date : </a> {{currenttraining?.startingDate}}
 
-         <!-- Grid row -->
-         <div class="row">
+                 </p>
+                 <p><a class="font-weight-bold">Ending Date :  </a> {{currenttraining?.endingDate}}
+                  
+                 </p>
+                 <!-- Read more button -->
+         
+               </div>
+               <!-- Grid column -->
+         
+             </div>
+             <!-- Grid row -->
+         
+             <hr class="my-5">
+           <!-- Grid row -->
 
-            <div class="col-12 mb-4" *ngFor="let elem of elementTest" >
-               <div class="card z-depth-0 bordered border-light">
-                  <div class="card-body p-0">
-                     <div class="row mx-0">
-                        <div class="col-md-8 grey lighten-4 rounded-left pt-4">
-                           <h5 class="font-weight-bold"> {{elem.key.subject}} </h5>
-                           <p class="font-weight-light text-muted mb-4">Lorem ipsum dolor sit amet
-                              consectetur adipisicing elit. Quibusdam vitae, fuga similique quos aperiam
-                              tenetur quo ut rerum debitis.</p>
-                        </div>
-                        <div class="col-md-3 text-center pt-4">
-                           <p class="h1 font-weight-normal">{{elem.key.price}} DH</p>
-                           <p class="h5 font-weight-light text-muted mb-4">{{elem.key.startingDate}}</p>
-                        </div>
-                        <div class="col-md-1 text-center pt-4 mt-3" >
-                           <mat-checkbox class="example-margin" (change)='sum()' [(ngModel)]="elem.value"></mat-checkbox>
+            <!--Section: Content-->
+            <section class="dark-grey-text">
+
+               <!-- Section heading -->
+               <h3 class="text-center font-weight-bold mb-5">Course curriculum</h3>
+
+               <!-- Grid row -->
+               <div class="row">
+
+                  <div class="col-12 mb-4" *ngFor="let elem of elementTest">
+                     <div class="card z-depth-0 bordered border-light">
+                        <div class="card-body p-0">
+                           <div class="row mx-0">
+                              <div class="col-md-8 grey lighten-4 rounded-left pt-4">
+                                 <h5 class="font-weight-bold"> {{elem.key.subject}} </h5>
+                                 <p class="font-weight-light text-muted mb-4">Lorem ipsum dolor sit amet
+                                    consectetur adipisicing elit. Quibusdam vitae, fuga similique quos aperiam
+                                    tenetur quo ut rerum debitis.</p>
+                                    <div class="text-right">
+                                    <span class="badge badge-success product mb-4 ml-2 ">{{elem.key.duration}} min</span>
+                                 </div>
+                              </div>
+                              <div class="col-md-3 text-center pt-4">
+                                 <p class="h1 font-weight-normal">{{elem.key.price}} DH</p>
+                                 <p class="h5 font-weight-light text-muted mb-4">{{elem.key.startingDate}}</p>
+                              </div>
+                              <div class="col-md-1 text-center pt-4 mt-3">
+                                 <mat-checkbox class="example-margin" (change)='sum()' [(ngModel)]="elem.value">
+                                 </mat-checkbox>
+                              </div>
+                           </div>
                         </div>
                      </div>
                   </div>
+
                </div>
+               <!-- Grid row -->
+            </section>
+
+            <div class="container mt-5">
+
+
+               <!--Section: Content-->
+               <section class="text-center mb-4">
+
+                  <style>
+                     @media (max-width: 767px) {
+                        .social-buttons .btn {
+                           padding: 8px 15px;
+                           margin: 1px;
+                        }
+                     }
+                  </style>
+                  <p class="font-weight-bold" ([ngModel])='total'>Total: {{total}} DH </p>
+
+                  <!-- Interactions -->
+
+                  <div class="button">
+                     <button mat-raised-button color="primary" (click)="saveTraining()">Ajouter formation</button>
+                  </div>
+
+                  <!-- Interactions -->
+
+                  <hr>
+
+               </section>
+               <!--Section: Content-->
+
+
             </div>
-
-         </div>
-         <!-- Grid row -->
-      </section>
-
-      <div class="container mt-5">
-
-
-         <!--Section: Content-->
-         <section class="text-center mb-4">
-     
-           <style>
-             @media (max-width: 767px) {
-               .social-buttons .btn {
-                 padding: 8px 15px;
-                 margin: 1px;
-               }
-             }
-           </style>
-     
-           <hr>
-     
-           <p class="font-weight-bold"([ngModel])='total'>Total: {{total}} DH </p>
-     
-           <!-- Interactions -->
-        
-             <div class="button">
-               <button mat-raised-button color="primary" (click)="saveTraining()">Ajouter formation</button>
-             </div>
- 
-             <!-- Interactions -->
-     
-           <hr>
-     
          </section>
-         <!--Section: Content-->
-      
-     
-       </div>
-   </section>
+   </div>
 </div>

@@ -4,27 +4,25 @@
 
 </div> -->
 
-<div class="container my-3 py-3 z-depth-1">
+<div class="container my-3 py-3 " >
 
-
+  <h2 class="h1 text-center mb-5">Mes formartions</h2>
   <!--Section: Content-->
   <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
-      <h2 class="h1 text-center mb-5">Mes formartions</h2>
+      
 
     <h3 class="font-weight-bold">Course title</h3>
 
-    <!-- <p class="text-muted mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam sapiente molestiae
-      numquam quas, voluptates omnis nulla ea odio quia similique corrupti magnam, doloremque laborum reiciendis
-      doloribus eius optio autem. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> -->
+     <p class="text-muted mb-5">Here is the list of courses that  you have chosen.</p> 
 
     <!--Grid row-->
-    <div *ngFor="let training of courses; let i = index;">
+    <div  *ngFor="let training of courses; let i = index;" >
       <div class="row" >
 
         <!--Grid column-->
         <div class="col-lg-3 col-md-12 mb-lg-0 mb-4">
 
-          <img src="https://mdbootstrap.com/img/Others/cards.png" class="img-fluid" alt="">
+          <img src="../../../../assets/elearining.png" class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
@@ -32,16 +30,23 @@
         <!--Grid column-->
         <div class="col-lg-6 col-md-6 mb-lg-0 mb-lg-0 mb-2">
 
-          <h4 class="h4">{{training.name}}</h4>
+          <h4 class="font-weight-bold mb-3"><strong>{{training.name}}</strong></h4>
+          <!-- Excerpt -->
+          <p class="dark-grey-text">{{training.description}}
+           .</p>
+          <!-- Post data -->
+          <p> <a class="font-weight-bold">Instituation Name :</a> {{training.hostInstitution}}
+          </p>
+          <p><a class="font-weight-bold"> starting Date : </a> {{training.startingDate}}
 
-          <p class="text-muted">{{training.description}}.</p>
+          </p>
+          <p><a class="font-weight-bold">Ending Date :  </a> {{training.endingDate}}
+           
+          </p>
+          
 
         </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        
-        <!--Grid column-->
+ 
 
       </div>
       <div *ngIf="show[i]">
@@ -51,28 +56,32 @@
                 <div class="row mx-0">
                    <div class="col-md-8 grey lighten-4 rounded-left pt-4">
                       <h5 class="font-weight-bold"> {{elem.subject}} </h5>
-                      <p class="font-weight-light text-muted mb-4">la duré d'element et {{elem.duration}} heurs.</p>
+                      <p class="font-weight-light text-muted mb-4">la duré d'element est 
+                        <span class="badge badge-success product mb-4 ml-2 "> {{elem.duration}} heurs</span>
+
+                        </p>
+
                    </div>
                    <div class="col-md-3 text-center pt-4">
                       <p class="h1 font-weight-normal">{{elem.price}} DH</p>
                       <p class="h5 font-weight-light text-muted mb-4">{{elem.startingDate}}</p>
+                      <button mat-raised-button color="warn" (click)='supprimerElement(elem.id)'>supprimer</button>
                    </div>
-                   <div class="col-md-1 text-center pt-4 mt-3" >
-                     <button (click)='supprimerElement(elem.id)'>supprimer</button>
-                   </div>
+   
+                  
                 </div>
              </div>
           </div>
        </div>
       </div>
       
-      <div class=" col-md-12 text-center">
-
-        <a class="btn btn-info btn-md" (click)="showelement(i)" role="button">afficher element<i class="fa fa-magic ml-1"></i></a>
-
-      </div>
+     
+      <div class="button  col-md-12 text-center">
+        <button mat-raised-button color="primary" (click)="showelement(i)">afficher element</button>
+     </div>
+      <hr>
     </div>
-    
+ 
     <!--Grid row-->
 
 

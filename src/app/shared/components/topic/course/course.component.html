@@ -17,17 +17,27 @@
                         <div class="card-header white-text red darken-3">
                           <h4>{{ course.name }}</h4>
                           <div class="d-flex justify-content-center align-items-end">
-                            <h3 class="mb-0 h3">$15</h3>
+                            <h3 class="mb-0 h3">{{ course.price }}DH</h3>
                             <p class="mb-0 ml-2">/ Total</p>
                           </div>
                         </div>
                         <i class="fa fa-book fa-2x pt-5 indigo-text"></i>
                         <div class="card-body">
-                          <p class="lead font-weight-bold">{{ course.hostInstitution }}</p>
-                          <p class="card-text">{{ course.description }}
-                          </p>
-                          <div class="button">
+                          <p class="lead font-weight-bold">Institution :{{ course.hostInstitution }}</p>
+                           <div class="button">
                             <button mat-raised-button color="primary" routerLink="/default/coursedetail/{{course.id}}" >Learn more</button>
+                          </div> 
+                        </div>
+                        <div class="card-footer pb-0">
+                          <div class="row mb-0">
+                            <div class="text-right">
+                              <span class="badge badge-primary mb-2 fl mr-5 ">Total Hour :{{ course.hours }}</span>
+                            </div>
+                            <div>
+                            <h6 class="ml-5 mb-0 pb-0 mt-1 font-weight-bold"><span class="red-text"><strong>{{ course.startingDate }}</strong></span>
+                            </h6>
+                          </div>
+                           
                           </div>
                         </div>
                       </div>

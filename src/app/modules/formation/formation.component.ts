@@ -94,11 +94,14 @@ public isCollapsed = true;
       data.forEach(element => {
         let t = <Training>element;
         this.courses.push(t);
+        console.log(this.courses);
       });
 
     })
 
     this.dataSource = this.courses;
+    console.log(this.courses);
+
   }
  calculatPrice(){
    this.training.price=0;

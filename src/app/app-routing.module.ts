@@ -13,6 +13,7 @@ import { FormationComponent } from './modules/formation/formation.component';
 import { CoursedetailComponent } from './shared/components/topic/coursedetail/coursedetail.component';
 import { ListRatingComponent } from './modules/list-rating/list-rating.component';
 import { MesformationComponent } from './shared/components/mesformation/mesformation.component';
+import { PostsComponent } from './modules/posts/posts.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,10 @@ const routes: Routes = [
       {
         path: 'dash',
         component: DashboardComponent
+      },
+      {
+        path: 'post',
+        component: PostsComponent
       }
     ]
   }
