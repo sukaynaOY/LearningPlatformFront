@@ -3,6 +3,7 @@ import { BeneficiaryService } from 'src/app/_services/beneficiary.service';
 import { Training } from 'src/app/models/training';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { Element } from 'src/app/models/element';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-mesformation',
@@ -11,14 +12,16 @@ import { Element } from 'src/app/models/element';
 })
 export class MesformationComponent implements OnInit {
 
-  constructor(private beneficiaryService : BeneficiaryService,private tokenStorageService:TokenStorageService) { }
+  constructor(private beneficiaryService : BeneficiaryService,private tokenStorageService:TokenStorageService,
+    private router: Router
+    ) { }
 
   myTraining : Array<Training> = new Array<Training>();
   elements : Array<Element> = new Array<Element>();
   courses : Array<Training> = new Array<Training>();
   show:Array<boolean> = new Array<boolean>();
   
-
+  public isCollapsed = true;
   ngOnInit() {
     this.getMyTraining();
   }
@@ -80,8 +83,11 @@ export class MesformationComponent implements OnInit {
 
   supprimerElement(id){
     this.beneficiaryService.delete(id,this.tokenStorageService.getUser().id).subscribe(data =>{
+     
       console.log(data)
     })
+    //this.router.navigate(['/default/mesformation']);
+ 
     console.log(id);
   }
 

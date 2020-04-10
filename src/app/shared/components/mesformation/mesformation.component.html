@@ -65,7 +65,7 @@
                    <div class="col-md-3 text-center pt-4">
                       <p class="h1 font-weight-normal">{{elem.price}} DH</p>
                       <p class="h5 font-weight-light text-muted mb-4">{{elem.startingDate}}</p>
-                      <button mat-raised-button color="warn" (click)='supprimerElement(elem.id)'>supprimer</button>
+                      <button mat-raised-button color="warn" (click)='supprimerElement(elem.id)' >supprimer</button>
                    </div>
    
                   
@@ -77,7 +77,11 @@
       
      
       <div class="button  col-md-12 text-center">
-        <button mat-raised-button color="primary" (click)="showelement(i)">afficher element</button>
+        <button mat-raised-button color="primary" (click)="showelement(i)" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" 
+        ><span>{{isCollapsed ? 'Afficher les elements' : 'Annuler'}}</span></button>
+
+      
      </div>
       <hr>
     </div>
