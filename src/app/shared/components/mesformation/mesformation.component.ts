@@ -16,6 +16,8 @@ export class MesformationComponent implements OnInit {
   myTraining : Array<Training> = new Array<Training>();
   elements : Array<Element> = new Array<Element>();
   courses : Array<Training> = new Array<Training>();
+  show:Array<boolean> = new Array<boolean>();
+  
 
   ngOnInit() {
     this.getMyTraining();
@@ -28,6 +30,7 @@ export class MesformationComponent implements OnInit {
       data.forEach(element => {
         
         let t = <Training>element;
+        this.show.push(false);
         this.courses.push(t);
       });
       console.log("g")
@@ -66,6 +69,20 @@ export class MesformationComponent implements OnInit {
     //   console.log(this.myTraining)
     // })
 
+  }
+  showelement(i){
+
+    if(this.show[i])
+    this.show[i]=false;
+    else
+    this.show[i]= true;
+  }
+
+  supprimerElement(id){
+    this.beneficiaryService.delete(id).subscribe(data =>{
+      console.log(data)
+    })
+    console.log(id);
   }
 
 }
