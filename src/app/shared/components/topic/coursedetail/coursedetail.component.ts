@@ -18,8 +18,9 @@ export class CoursedetailComponent implements OnInit {
   @Input() currenttrainingId : number;
   currenttraining : Training;
   elementTest = new Array<{key:Element, value:boolean}>();
+  currentTrainer : string;
   total:number=0;
-
+  cvpath = "./assets/"
   constructor(private tokenStorageService: TokenStorageService,private trainingService : TrainingService,private router: Router , private route: ActivatedRoute, private beneficiaryService:BeneficiaryService) { }
 
   ngOnInit() {
@@ -39,10 +40,18 @@ var test = {key:x, value:false}
   })
 
   console.log(this.elementTest.length)
+  this.getTrainer();
 })
   }
 
+getTrainer(){
+  this.trainingService.getTrainer(this.currenttraining.id).subscribe(data => {
+// this.currentTrainer = data;
+this.cvpath += data+".pdf"
 
+  })
+
+}
 
   saveTraining(){
 

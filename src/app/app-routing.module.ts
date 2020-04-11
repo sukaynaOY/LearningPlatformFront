@@ -14,6 +14,7 @@ import { CoursedetailComponent } from './shared/components/topic/coursedetail/co
 import { ListRatingComponent } from './modules/list-rating/list-rating.component';
 import { MesformationComponent } from './shared/components/mesformation/mesformation.component';
 import { PostsComponent } from './modules/posts/posts.component';
+import { MonprofileComponent } from './shared/components/monprofile/monprofile.component';
 
 const routes: Routes = [
   {
@@ -72,6 +73,10 @@ const routes: Routes = [
       {
         path: 'post',
         component: PostsComponent
+      },
+      {
+        path: 'monprofile',
+        component: MonprofileComponent
       }
     ]
   }

@@ -16,6 +16,8 @@ import { CourseComponent } from './components/topic/course/course.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MesformationComponent } from './components/mesformation/mesformation.component';
+import { MonprofileComponent } from './components/monprofile/monprofile.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { MesformationComponent } from './components/mesformation/mesformation.co
     CourseComponent,
     TopicComponent,
     MesformationComponent,
+    MonprofileComponent,
 
   ],
   imports: [
@@ -41,7 +44,8 @@ import { MesformationComponent } from './components/mesformation/mesformation.co
     MatMenuModule,
     MatListModule,
     RouterModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,

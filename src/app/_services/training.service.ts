@@ -43,8 +43,12 @@ export class TrainingService {
   countavg(id):Observable<any> {
     return this.http.get(`${baseUrl}countbens/${id}`);
   }
-
   declancher(id: any):Observable<any> {
     return this.http.get(`${baseUrl}declancher/${id}`);
   }
+  getTrainer(trainingid){
+
+    return this.http.get(`${baseUrl}getTrainer/${trainingid}`, {responseType: 'text'})
+  }
+
 }
