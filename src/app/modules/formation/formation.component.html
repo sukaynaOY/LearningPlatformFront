@@ -143,7 +143,7 @@
       <!-- Taaaaaaaable -->
       <h3 class="font-weight-bold my-4">Liste des Formation</h3>
 
-
+<!-- 
       <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
         <div fxFlex="100">
           
@@ -169,6 +169,44 @@
         </div>
 
       </div>
+ -->
+
+      <table id="tableSortExample" mdbTable class="z-depth-1"
+      class="table table-bordered table-responsive-md table-striped text-center table-hover table-hover-cursor">
+      <thead>
+        <tr>
+          <th>id</th>
+        <th>name</th>
+        <th>description</th>
+        <th>host</th>
+        <th>action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td>{{course.id}}</td>
+                <td>{{course.name}}</td>
+                <td>{{course.description}}</td>
+                <td>{{course.hostInstitution}}</td>
+                <td>
+                
+                      
+                  <div class="button">
+                    <button mat-raised-button color="primary" class="mr-2" (click)="saveTraining()">Modifier</button>
+                
+                    <button mat-raised-button color="warn" (click)="deleteTraining(course.id)">Supprimer</button>
+                  </div>
+               
+                 
+
+                </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
 
     </div>
   </div>

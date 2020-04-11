@@ -36,5 +36,8 @@ export class TrainingService {
   countPrice(){
     return this.http.get(baseUrl + 'countPrice');
   }
+  delete(id) {
+    return this.http.delete(`${baseUrl}alltrain/${id}`);
+  }
 
 }

@@ -121,4 +121,22 @@ public isCollapsed = true;
      this.training.price += this.elements[i].price; 
    }
  }
+
+ // ajouter soka
+ deleteTraining(id: number) {
+  this.trainingService.delete(id)
+    .subscribe(
+      response => {
+        // this.router.navigate(['adminPanel/gestionActualite']);
+        this.refreshList();
+      },
+      error => {
+        console.log(error);
+      });
+}
+
+refreshList() {
+  this. getAllAvailableTraining();
+ }
+
 }
