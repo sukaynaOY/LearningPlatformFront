@@ -13,7 +13,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TrainingService {
-
+  
+ 
   constructor(private http: HttpClient) { }
 
   getAlltraining(): Observable<any> {
@@ -39,5 +40,11 @@ export class TrainingService {
   delete(id) {
     return this.http.delete(`${baseUrl}alltrain/${id}`);
   }
+  countavg(id):Observable<any> {
+    return this.http.get(`${baseUrl}countbens/${id}`);
+  }
 
+  declancher(id: any):Observable<any> {
+    return this.http.get(`${baseUrl}declancher/${id}`);
+  }
 }

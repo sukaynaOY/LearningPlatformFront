@@ -28,6 +28,7 @@ export interface PeriodicElement {
 export class FormationComponent implements OnInit {
 
  courses : Array<Training> = new Array<Training>();
+ coursesavg : Array<number> = new Array<number>();
 
 training: Training = new Training();
 elementSize:number;
@@ -95,8 +96,9 @@ public isCollapsed = true;
         let t = <Training>element;
         this.courses.push(t);
         console.log(this.courses);
+        
       });
-
+     
     })
 
     this.dataSource = this.courses;
@@ -109,8 +111,8 @@ public isCollapsed = true;
       data.forEach(element => {
         let t = <Training>element;
         this.courses.push(t);
+        this.getavgbens(t.id);
       });
-
     })
 
     this.dataSource = this.courses;
@@ -138,5 +140,14 @@ public isCollapsed = true;
 refreshList() {
   this. getAllAvailableTraining();
  }
+ getavgbens(id){
+  this.trainingService.countavg(id).subscribe(data => {  
+    this.coursesavg.push(Math.round(data));
+ });
+ }
 
+ declancher(id){
+  this.trainingService.declancher(id).subscribe(data => {  
+ });
+ }
 }
