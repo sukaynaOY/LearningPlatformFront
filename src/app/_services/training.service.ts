@@ -40,4 +40,9 @@ export class TrainingService {
     return this.http.delete(`${baseUrl}alltrain/${id}`);
   }
 
+  getTrainer(trainingid){
+
+    return this.http.get(`${baseUrl}getTrainer/${trainingid}`, {responseType: 'text'})
+  }
+
 }

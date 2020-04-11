@@ -1,0 +1,83 @@
+<section>
+
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <!-- Material form login -->
+                <div class="card">
+
+                    <!--Card content-->
+                    <div class="card-body">
+
+                        <!-- Form -->
+
+                        <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Mon Profile</h3>
+
+
+
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <!-- First name -->
+                                <input type="text" name="firstname" [(ngModel)]="currentUser.firstName"
+                                    class="form-control " placeholder="First Name">
+                            </div>
+                            <div class="col">
+                                <!-- Last name -->
+                                <input type="text" name="lastName" [(ngModel)]="currentUser.lastName"
+                                    class="form-control " placeholder="Last Name">
+                            </div>
+                        </div>
+
+                        <input type="email" name="email" [(ngModel)]="currentUser.email" class="form-control mb-4"
+                            placeholder="Email">
+
+                        <input type="text" name="username" [(ngModel)]="currentUser.username"
+                            class="form-control mb-4" placeholder="UserName">
+
+
+                        <input type="number" name="phone" [(ngModel)]="currentUser.phone" class="form-control mb-4"
+                            placeholder="Number">
+
+                        <!-- <input type="password" name="password" [(ngModel)]="currentUser.password"
+                            class="form-control mb-4" placeholder="Password"> -->
+                            <label for="file">Votre CV</label>
+                            <input type="file" id="customFile" (change)="selectFile($event)" class="form-control mb-4" accept=".pdf">
+
+                            <!-- <button class="btn btn-primary" [disabled]="!selectedFiles || admincheck || status" (click)="upload()">Save File</button> -->
+
+                            <!-- <button class="btn btn-primary" style="margin-left: 10px" (click)="downloadFile()">View File</button>
+                            <a [href]="'assets/benebene.pdf'" target="_blank" > download</a> -->
+
+
+
+                            <button class="btn btn-primary" style="margin-left: 10px" (click)="updateTrainer()">Enregistrer</button>
+                            <!-- <a [href]="'assets/benebene.pdf'" target="_blank" > download</a> -->
+
+                            <!-- <div class="text-center">
+                                <button type="submit"
+                                    class="btn btn-outline-orange btn-rounded my-4 waves-effect">Register</button>
+
+                                <button routerLink="/login" type="button"
+                                    class="btn btn-outline-orange btn-rounded my-4 waves-effect">Login</button>
+
+                            </div> -->
+
+                            <p *ngIf="errorMessage" class="error">
+                                {{ errorMessage }}
+                            </p>
+                            <p *ngIf="isSuccessful" class="success">
+                                "User Saved"
+                            </p>
+
+                            <!-- Form -->
+
+                        </div>
+
+                    </div>
+                    <!-- Material form login -->
+                </div>
+            </div>
+
+    
+
+</section>
+
