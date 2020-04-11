@@ -208,7 +208,13 @@
                   <div class="button">
                     le nombre recommander est:{{course.minNumber}}<br>
                     et le nombre des inscrit est:{{coursesavg[i]}}<br>
-                      <button mat-raised-button color="primary"  class="mr-2" (click)="declancher(course.id)">déclencher</button>
+                    <div *ngIf="!course.confirmed">
+                      <button mat-raised-button color="primary"  class="mr-2" (click)="declancher(course.id)" routerLink="/default/formation" >déclencher</button>
+                    </div>
+                    <div *ngIf="course.confirmed" >
+                      <button mat-raised-button color="primary" disabled [ngStyle]="{'background-color':'green'}" class="mr-2" (click)="declancher(course.id)">this course is Confirmed</button>
+                      
+                    </div>
                   </div>
                 </td>
         </tr>
