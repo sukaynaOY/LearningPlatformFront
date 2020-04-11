@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material';
 import { ListRatingComponent } from './modules/list-rating/list-rating.component';
 import { RatingComponent } from './modules/rating/rating.component';
 import { EventEmitterService } from './_services/event-emitter.service';
+import { MatDividerModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EventEmitterService } from './_services/event-emitter.service';
     WelcomeModule,
     FormsModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [authInterceptorProviders,EventEmitterService],
   bootstrap: [AppComponent]

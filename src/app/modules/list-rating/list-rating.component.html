@@ -73,7 +73,7 @@
 
 </div> -->
 
-<div class="container my-3 py-3 z-depth-1">
+<div class="container my-3 py-3 ">
 
 
   <!--Section: Content-->
@@ -109,7 +109,7 @@
         <section class="p-md-3 mx-md-5">
           <div class="row d-flex justify-content-between align-items-center">
             <div class="col-md-6 mb-4">
-              <h5 class="font-weight-bold mb-3">{{training.name}}</h5>
+              <h2 class="font-weight-bold mb-3 red-text">{{training.name}}</h2>
               <p class="text-muted pt-3">
                
                 {{training.description}}
@@ -122,35 +122,35 @@
           <div class="row pt-3">
             <div class="col-lg-3 col-md-6 mb-5">
               <h5 class="font-weight-bold mb-3">
-                <i class="far fa-paper-plane indigo-text pr-2"></i>   {{training.price}} Dirham
+                <mat-icon>money</mat-icon>
+                {{training.price}} Dirham
               </h5>
               <p class="text-muted mb-lg-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              </p>
+Le prix total du formation              </p>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
               <h5 class="font-weight-bold mb-3">
-                <i class="fas fa-pen-alt green-text pr-2"></i>   {{training.hours}} Heurs
+                <mat-icon>access_time</mat-icon> 
+                {{training.hours}} Heurs
               </h5>
               <p class="text-muted mb-lg-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
+Le total des heurs              </p>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
               <h5 class="font-weight-bold mb-3">
-                <i class="fas fa-user amber-text pr-2"></i>  {{training.hostInstitution}}
+                <mat-icon>domain</mat-icon>  {{training.hostInstitution}}
               </h5>
               <p class="text-muted mb-md-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
+L'institue du formation              </p>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
               <h5 class="font-weight-bold mb-3">
-                <i class="fas fa-rocket red-text pr-2"></i>  {{training.elements.length}} Elements
+                 <mat-icon>menu_book</mat-icon> 
+  {{training.elements.length}} Elements
               </h5>
               <p class="text-muted mb-md-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
+
+Le nombre total des elements du cour              </p>
             </div>
           </div>
         </section>
@@ -158,7 +158,7 @@
       <div *ngIf="show[i]">
         <div class="container my-5 py-1" >
 
-          <h2 class="h1 text-center mb-5 green-text"> Evaluate Formation</h2>
+          <h2 class="h1 text-center mb-5 blue-text"> Evaluate Formation</h2>
         
           <!--Section: Content-->
           <section class="text-center">
@@ -273,11 +273,14 @@
         </div>
       </div>
       
-      <div class=" col-md-12 text-center">
+      <div class=" col-md-12 text-center  white-text">
 
-        <a class="btn btn-info btn-md" (click)="showelement(i)" role="button"> Evaluate Formation<i class="fa fa-magic ml-1"></i></a>
+        <a class="btn btn-info btn-md" (click)="showelement(i)" role="button"> Evaluate Formation</a>
 
       </div>
+
+      <hr>
+      
     </div>
     
     <!--Grid row-->
