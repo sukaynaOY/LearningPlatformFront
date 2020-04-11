@@ -8,6 +8,8 @@ import { Element } from 'src/app/models/element';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { element } from 'protractor';
 import { EventEmitterService } from 'src/app/_services/event-emitter.service';
+import { Router } from '@angular/router';
+import { Trainer } from 'src/app/models/Trainer';
 
 export interface PeriodicElement {
   id: string;
@@ -31,6 +33,7 @@ export class FormationComponent implements OnInit {
  coursesavg : Array<number> = new Array<number>();
 
 training: Training = new Training();
+modificationTraining:Training = new Training();
 elementSize:number;
 elements:Element[];
 public isCollapsed = true;
@@ -40,10 +43,11 @@ public isCollapsed = true;
   dataSource = this.courses;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  modificationTrainingtriger: boolean= false;
  
 
   constructor(private trainingService: TrainingService,private tokenStorage: TokenStorageService
-    ,private dashboardService: DashboardService,private eventEmitterService: EventEmitterService  ) { }
+    ,private dashboardService: DashboardService,private eventEmitterService: EventEmitterService) { }
   //constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
@@ -130,7 +134,6 @@ public isCollapsed = true;
     .subscribe(
       response => {
         // this.router.navigate(['adminPanel/gestionActualite']);
-        this.refreshList();
       },
       error => {
         console.log(error);
@@ -149,5 +152,20 @@ refreshList() {
  declancher(id){
   this.trainingService.declancher(id).subscribe(data => {  
  });
+ }
+ modifier(t:Training){
+   
+   this.modificationTraining=t;
+   this.modificationTrainingtriger = true;
+   this.modificationTraining.trainer = new Trainer();
+   this.modificationTraining.trainer.id= this.tokenStorage.getUser().id;
+   console.log(this.modificationTraining);
+ }
+ appliquermodification(t:Training){
+   this.modificationTrainingtriger=false;
+   this.trainingService.modifier(this.modificationTraining).subscribe(data =>{
+    console.log(data)
+  })
+  this.modificationTraining = new Training();
  }
 }

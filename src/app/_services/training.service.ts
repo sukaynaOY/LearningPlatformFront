@@ -50,5 +50,9 @@ export class TrainingService {
 
     return this.http.get(`${baseUrl}getTrainer/${trainingid}`, {responseType: 'text'})
   }
+  modifier(data){
+    return this.http.post(baseUrl+'modifier', data);
+    
+  }
 
 }

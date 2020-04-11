@@ -193,9 +193,9 @@
                 
                       
                   <div class="button">
-                    <button mat-raised-button color="primary" class="mr-2" (click)="saveTraining()">Modifier</button>
+                    <button mat-raised-button color="primary" class="mr-2" (click)="modifier(course)">Modifier</button>
                 
-                    <button mat-raised-button color="warn" (click)="deleteTraining(course.id)">Supprimer</button>
+                    <button mat-raised-button color="warn" routerLink="default/dash" (click)="deleteTraining(course.id)">Supprimer</button>
                   </div>
                
                  
@@ -220,6 +220,13 @@
         </tr>
       </tbody>
     </table>
+    <div *ngIf="modificationTrainingtriger">
+      <p *ngFor="let elem of modificationTraining.elements; let i = index">
+      <app-element  [element]="modificationTraining.elements[i]"></app-element>
+    </p>
+    <button mat-raised-button color="primary"  class="mr-2" (click)="appliquermodification()" routerLink="/default/formation" >Modifier</button>
+    </div>
+    
 
 
 
