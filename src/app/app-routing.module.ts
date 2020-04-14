@@ -15,6 +15,7 @@ import { ListRatingComponent } from './modules/list-rating/list-rating.component
 import { MesformationComponent } from './shared/components/mesformation/mesformation.component';
 import { PostsComponent } from './modules/posts/posts.component';
 import { MonprofileComponent } from './shared/components/monprofile/monprofile.component';
+import { UpdateFormationComponent } from './modules/formation/update-formation/update-formation.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,14 @@ const routes: Routes = [
       {
         path: 'formation',
         component: FormationComponent
+      },
+      {
+        path: 'updateFormation',
+        component: UpdateFormationComponent
+      },
+      {
+        path: 'updateFormation/:id',
+        component: UpdateFormationComponent
       },
       {
         path: 'course',

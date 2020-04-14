@@ -89,7 +89,7 @@
 
             <!--Section: Content-->
             <section>
-                <form class="my-5 mx-md-5" name="form" (ngSubmit)="onSubmit()">
+                <form class="my-5 mx-md-5" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 
                     <div class="row">
                         <div class="col-md-6 mx-auto">
@@ -108,79 +108,132 @@
                                     <div class="form-row mb-4">
                                         <div class="col">
                                             <!-- First name -->
-                                            <input type="text" name="firstname" [(ngModel)]="form.firstName"
-                                                class="form-control " placeholder="First Name">
+                                            <input type="text" name="firstname" [(ngModel)]="form.firstname" required
+                                                #firstname="ngModel" class="form-control mb-4"
+                                                placeholder="First Name *" />
+                                            <div class="alert alert-danger" role="alert"
+                                                *ngIf="f.submitted && firstname.invalid">
+                                                First Name is required!
+                                            </div>
                                         </div>
                                         <div class="col">
                                             <!-- Last name -->
-                                            <input type="text" name="lastName" [(ngModel)]="form.lastName"
-                                                class="form-control " placeholder="Last Name">
+                                                <input type="text" name="lastName"[(ngModel)]="form.lastName" required
+                                                #lastName="ngModel" class="form-control mb-4"
+                                                placeholder="Last Name *" />
+                                            <div class="alert alert-danger" role="alert"
+                                                *ngIf="f.submitted && lastName.invalid">
+                                                Last Name is required!
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <input type="email" name="email" [(ngModel)]="form.email" class="form-control mb-4"
-                                        placeholder="Email">
+                                    <div class="form-group">
+                                        <input type="email" name="email" [(ngModel)]="form.email" required
+                                            #email="ngModel" class="form-control mb-4" placeholder="Email *" />
+                                        <div class="alert alert-danger" role="alert"
+                                            *ngIf="f.submitted && email.invalid">
+                                            Email is required!
+                                        </div>
+                                    </div>
 
-                                    <input type="text" name="username" [(ngModel)]="form.username"
-                                        class="form-control mb-4" placeholder="UserName">
 
 
-                                    <input type="number" name="phone" [(ngModel)]="form.phone" class="form-control mb-4"
-                                        placeholder="Number">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control mb-4" name="username"
+                                            [(ngModel)]="form.username" required #username="ngModel"
+                                            placeholder="Username" />
+                                        <div class="alert alert-danger" role="alert"
+                                            *ngIf="f.submitted && username.invalid">
+                                            Username is required!
+                                        </div>
+                                    </div>
 
-                                    <input type="password" name="password" [(ngModel)]="form.password"
-                                        class="form-control mb-4" placeholder="Password">
+                                    <div class="form-group">
+                                    <input type="number" name="phone" [(ngModel)]="form.phone"
+                                     class="form-control mb-4"  placeholder="Number *" required minlength="10"  #phone="ngModel">
+                                        
+                                        <div class="alert alert-danger" role="alert"
+                                        *ngIf="f.submitted && phone.invalid" >
+                                        <div *ngIf="phone.errors.required">Phone is required</div>
+                                        <div *ngIf="phone.errors.minlength">
+                                            Phone must be at least 10 characters
+                                        </div>
+                                    </div>
+                                    </div>
 
-                                  
+
+                                    <div class="form-group">
+                                        <input type="password" name="password" [(ngModel)]="form.password"
+                                            class="form-control mb-4" placeholder="Password *" required minlength="6"
+                                            #password="ngModel">
+                                        <div class="alert alert-danger" role="alert"
+                                            *ngIf="f.submitted && password.invalid">
+                                            <div *ngIf="password.errors.required">Password is required</div>
+                                            <div *ngIf="password.errors.minlength">
+                                                Password must be at least 6 characters
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-row mb-4">
                                         <div class="col">
                                             <div class="form-check">
-                                                <input type="radio" class="form-check-input"
-                                                    id="materialUnchecked" name="form.role"
-                                                    [(ngModel)]="form.role"
+                                                <input type="radio" class="form-check-input" id="materialUnchecked"
+                                                    name="form.role" [(ngModel)]="form.role"
                                                     [value]="templateUnchecked">
                                                 <label class="form-check-label"
                                                     for="materialUnchecked">Formateur</label>
                                             </div>
-                                                
+
                                         </div>
                                         <div class="col">
                                             <!-- Group of material radios - option 2 -->
                                             <div class="form-check">
-                                                <input type="radio" class="form-check-input"
-                                                    id="materialChecked" name="form.role"
-                                                    [(ngModel)]="form.role"
-                                                    [value]="templateChecked">
+                                                <input type="radio" class="form-check-input" id="materialChecked"
+                                                    name="form.role" [(ngModel)]="form.role" [value]="templateChecked">
                                                 <label class="form-check-label"
                                                     for="materialChecked">Benificiare</label>
                                             </div>
                                         </div>
                                     </div>
-                                        <div class="text-center">
-                                            <button type="submit"
-                                                class="btn btn-outline-orange btn-rounded my-4 waves-effect">Register</button>
+                                    <div class="text-center">
+                                        <button type="submit"
+                                            class="btn btn-outline-orange btn-rounded my-4 waves-effect">Register</button>
 
-                                            <button routerLink="/login" type="button"
-                                                class="btn btn-outline-orange btn-rounded my-4 waves-effect">Login</button>
-
-                                        </div>
-
-                                        <p *ngIf="errorMessage" class="error">
-                                            {{ errorMessage }}
-                                        </p>
-                                        <p *ngIf="isSuccessful" class="success">
-                                            "User Saved"
-                                        </p>
-
-                                        <!-- Form -->
+                                        <button routerLink="/login" type="button"
+                                            class="btn btn-outline-orange btn-rounded my-4 waves-effect">Login</button>
 
                                     </div>
 
+                                   
+                                    <div  *ngIf="errorMessage">
+                                        <div   #alert class="alert alert-danger alert-dismissible fade show" role="alert">
+                                           <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+                                             <span aria-hidden="true">&times;</span>
+                                           </button>
+                                           <strong>Error!</strong>  {{ errorMessage }}
+                                         </div>
+                                        </div>
+                                   
+                                    <div   *ngIf="isSuccessful">
+                                        <div   #alert class="alert alert-success alert-dismissible fade show" role="alert">
+                                           <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+                                             <span aria-hidden="true">&times;</span>
+                                           </button>
+                                           <strong>Success!</strong> vous etes enregistrer avec succès.
+                                         </div>
+                                        </div>
+
+                                    <!-- Form -->
+
                                 </div>
-                                <!-- Material form login -->
+
                             </div>
+                            <!-- Material form login -->
                         </div>
+                    </div>
 
                 </form>
 

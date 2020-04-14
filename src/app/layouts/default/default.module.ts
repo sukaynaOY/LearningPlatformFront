@@ -5,7 +5,7 @@ import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.componen
 import { RouterModule } from '@angular/router';
 import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatSidenavModule, MatDividerModule, MatCardModule, MatPaginatorModule, MatTableModule, MatInputModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { MatSidenavModule, MatDividerModule,  MatDialogModule,MatCardModule, MatPaginatorModule, MatTableModule, MatInputModule, MatButtonModule, MatIconModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/modules/dashboard.service';
 import { FormationComponent } from 'src/app/modules/formation/formation.component';
@@ -16,6 +16,8 @@ import {CoursedetailComponent} from "src/app/shared/components/topic/coursedetai
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatToolbarModule, MatMenuModule, MatListModule } from '@angular/material';
 
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -45,12 +47,15 @@ import {MatToolbarModule, MatMenuModule, MatListModule } from '@angular/material
     MatIconModule,
     MatToolbarModule,
      MatMenuModule,
-      MatListModule 
+      MatListModule ,
+      MatDialogModule,
+      BrowserAnimationsModule,
+      ToastrModule.forRoot()
 
 
   ],
   providers: [
     DashboardService
-  ]
+  ],
 })
 export class DefaultModule { }

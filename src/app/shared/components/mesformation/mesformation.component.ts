@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BeneficiaryService } from 'src/app/_services/beneficiary.service';
 import { Training } from 'src/app/models/training';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
@@ -20,7 +20,8 @@ export class MesformationComponent implements OnInit {
   elements : Array<Element> = new Array<Element>();
   courses : Array<Training> = new Array<Training>();
   show:Array<boolean> = new Array<boolean>();
-  
+   toast =false;
+
   public isCollapsed = true;
   ngOnInit() {
     this.getMyTraining();
@@ -80,15 +81,24 @@ export class MesformationComponent implements OnInit {
     else
     this.show[i]= true;
   }
-
   supprimerElement(id){
+   
     this.beneficiaryService.delete(id,this.tokenStorageService.getUser().id).subscribe(data =>{
-     
+   
       console.log(data)
     })
     //this.router.navigate(['/default/mesformation']);
- 
+
+
     console.log(id);
+    this.toast =true;
   }
+  
+  @ViewChild('alert', { static: true }) alert: ElementRef;
+
+closeAlert() {
+  this.toast =false;
+  this.alert.nativeElement.classList.remove('show');
+}
 
 }

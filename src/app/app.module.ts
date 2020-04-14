@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,14 +13,18 @@ import { MatCardModule } from '@angular/material';
 import { ListRatingComponent } from './modules/list-rating/list-rating.component';
 import { RatingComponent } from './modules/rating/rating.component';
 import { EventEmitterService } from './_services/event-emitter.service';
-import { MatDividerModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatListModule } from '@angular/material';
+import { MatDividerModule, MatToolbarModule, MatDialogModule,MatIconModule, MatButtonModule, MatMenuModule, MatListModule } from '@angular/material';
+import { ToastrModule } from 'ngx-toastr';
+import { UpdateFormationComponent } from './modules/formation/update-formation/update-formation.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     ListRatingComponent,
-    RatingComponent
+    RatingComponent,
+    UpdateFormationComponent,
     
   ],
   imports: [
@@ -33,7 +36,12 @@ import { MatDividerModule, MatToolbarModule, MatIconModule, MatButtonModule, Mat
     FormsModule,
     HttpClientModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
+
+
   ],
   providers: [authInterceptorProviders,EventEmitterService],
   bootstrap: [AppComponent]

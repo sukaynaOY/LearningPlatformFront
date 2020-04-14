@@ -18,6 +18,9 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MesformationComponent } from './components/mesformation/mesformation.component';
 import { MonprofileComponent } from './components/monprofile/monprofile.component';
 import { FormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { FormsModule } from '@angular/forms';
     MatListModule,
     RouterModule,
     HighchartsChartModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   exports: [
     HeaderComponent,
@@ -56,7 +61,11 @@ import { FormsModule } from '@angular/forms';
     PieComponent,
     HomeComponent,
     CourseComponent,
-    TopicComponent
+    TopicComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule
+  
   ]
 })
 export class SharedModule { }

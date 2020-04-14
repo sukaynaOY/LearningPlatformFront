@@ -143,6 +143,7 @@
       <!-- Taaaaaaaable -->
       <h3 class="font-weight-bold my-4">Liste des Formation</h3>
 
+      
 <!-- 
       <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
         <div fxFlex="100">
@@ -193,7 +194,7 @@
                 
                       
                   <div class="button">
-                    <button mat-raised-button color="primary" class="mr-2" (click)="modifier(course)">Modifier</button>
+                    <button mat-raised-button color="primary" class="mr-2" routerLink="/default/updateFormation/{{course.id}}" >Modifier</button>
                 
                     <button mat-raised-button color="warn" routerLink="default/dash" (click)="deleteTraining(course.id)">Supprimer</button>
                   </div>

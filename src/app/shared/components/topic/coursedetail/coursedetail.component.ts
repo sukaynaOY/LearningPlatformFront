@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { TrainingService } from 'src/app/_services/training.service';
 import { Training } from 'src/app/models/training';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -8,6 +8,7 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { keyValuesToMap } from '@angular/flex-layout/extended/typings/style/style-transforms';
 import { Beneficiary } from 'src/app/models/beneficiary';
 
+
 @Component({
   selector: 'app-coursedetail',
   templateUrl: './coursedetail.component.html',
@@ -15,14 +16,21 @@ import { Beneficiary } from 'src/app/models/beneficiary';
 })
 export class CoursedetailComponent implements OnInit {
 
+
   @Input() currenttrainingId : number;
   currenttraining : Training;
+  show =false;
   elementTest = new Array<{key:Element, value:boolean}>();
   currentTrainer : string;
   total:number=0;
   cvpath = "./assets/"
-  constructor(private tokenStorageService: TokenStorageService,private trainingService : TrainingService,private router: Router , private route: ActivatedRoute, private beneficiaryService:BeneficiaryService) { }
+  constructor(private tokenStorageService: TokenStorageService,
+    private trainingService : TrainingService,private router: Router ,
+     private route: ActivatedRoute, 
+     private beneficiaryService:BeneficiaryService,
+  ) { }
 
+   
   ngOnInit() {
     this.getCurrenttraining(this.route.snapshot.paramMap.get('id'));
   }
@@ -75,7 +83,7 @@ this.cvpath += data+".pdf"
   })
         });
 
-        
+       this.show =true;
 
 
 }
@@ -87,6 +95,13 @@ sum(){
 
   }
 }
+@ViewChild('alert', { static: true }) alert: ElementRef;
+
+closeAlert() {
+  this.show =false;
+  this.alert.nativeElement.classList.remove('show');
+}
+
 
 }
 

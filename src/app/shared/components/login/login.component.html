@@ -89,7 +89,7 @@
       <!--Section: Content-->
       <section
       >
-        <form class="my-5 mx-md-5"  name="form" (ngSubmit)="onSubmit()">
+        <form class="my-5 mx-md-5"  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
     
           <div class="row">
             <div class="col-md-6 mx-auto">
@@ -103,21 +103,44 @@
     
                     <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Log In</h3>
     
-                    <!-- Name -->
-                    <input type="text" name="username" [(ngModel)]="form.username" class="form-control mb-4" placeholder="Username">
-    
-                    <!-- Email -->
+                    <div class="form-group">
+                      <input type="text" class="form-control mb-" name="username" [(ngModel)]="form.username" required
+                        #username="ngModel" placeholder="Username" />
+                      <div class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid">
+                        Username is required!
+                      </div>
+                    </div>
+
+                    <!-- Name 
+                    <input type="text" name="username" [(ngModel)]="form.username" class="form-control mb-4" >
+    -->
+                    <!-- Email 
                     <input type="password" name="password" [(ngModel)]="form.password" class="form-control" placeholder="Password">
                     <small id="passwordHelpBlock" class="form-text text-right blue-text">
                       <a href="">Recover Password</a>
                     </small>
-    
+                  -->
+                  <div class="form-group">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
+                      minlength="6" #password="ngModel"  placeholder="Password"/>
+                    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
+                      <div *ngIf="password.errors.required">Password is required</div>
+                      <div *ngIf="password.errors.minlength">
+                        Password must be at least 6 characters
+                      </div>
+                    </div>
+                  </div>
                     <div class="text-center">
                       <button  routerLink="/signup" type="button" class="btn btn-outline-orange btn-rounded my-4 waves-effect">Register</button>
                       <button  type="submit" class="btn btn-outline-orange btn-rounded my-4 waves-effect">Login</button>
                
                     </div>
-
+                    <div class="form-group">
+                      <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                        Login failed: {{ errorMessage }}
+                      </div>
+                    </div>
+                    
                     <p *ngIf="error" class="error">
                       {{ errorMessage }}
                     </p>
@@ -130,6 +153,7 @@
               </div>
               <!-- Material form login -->
             </div>
+            
           </div>
     
         </form>

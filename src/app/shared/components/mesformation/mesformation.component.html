@@ -8,7 +8,56 @@
 
   <h2 class="h1 text-center mb-5">Mes formartions</h2>
   <!--Section: Content-->
-  <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+
+  
+    
+  <div class="container my-5 z-depth-1" *ngIf ="courses.length===0">
+
+
+    <!--Section: Content-->
+    <section class="dark-grey-text p-5">
+  
+      <!-- Grid row -->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-5 mb-4 mb-md-0">
+  
+          <div class="view">
+            <img src="https://mdbootstrap.com/img/illustrations/undraw_Group_chat_unwm.svg" class="img-fluid" alt="smaple image">
+          </div>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-7 mb-lg-0 mb-4">
+  
+          <!-- Form -->
+          <form class="" action="">
+  
+            <!-- Section heading -->
+            <h3 class="font-weight-bold my-3">
+              Il n'y a aucune information </h3>
+            
+            <p class="text-muted mb-4 pb-2">votre panier ne comporte aucun course .</p>
+   
+            
+          </form>
+          <!-- Form -->
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+      
+    </section>
+    <!--Section: Content-->
+  
+  
+  </div>
+  <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text" *ngIf ="courses.length==!0">
       
 
     <h3 class="font-weight-bold">Course title</h3>
@@ -43,8 +92,14 @@
           <p><a class="font-weight-bold">Ending Date :  </a> {{training.endingDate}}
            
           </p>
-          <p> <a class="font-weight-bold">state of Training :</a> {{training.confirmed? 'CONFIRMED' : 'NOT CONFIRMED'}}
+          <p> <a class="font-weight-bold">state of Training :</a>
+            <span class="badge badge-success product mb-4 ml-xl-0 ml-4" *ngIf="training.confirmed === true">CONFIRMED</span>
+            <span class="badge badge-danger product mb-4 ml-2" *ngIf="training.confirmed === false">NOT CONFIRMED</span>
+
+            <!-- {{training.confirmed? 'CONFIRMED' : 'NOT CONFIRMED'}} -->
           </p>
+
+  
           
 
         </div>
@@ -67,14 +122,23 @@
                    <div class="col-md-3 text-center pt-4">
                       <p class="h1 font-weight-normal">{{elem.price}} DH</p>
                       <p class="h5 font-weight-light text-muted mb-4">{{elem.startingDate}}</p>
-                      <button mat-raised-button color="warn" (click)='supprimerElement(elem.id)' routerLink="/default/course">supprimer</button>
+                      <button mat-raised-button color="warn" (click)='supprimerElement(elem.id)' >supprimer</button>
+                      
                    </div>
    
-                  
+                   
                 </div>
              </div>
           </div>
        </div>
+       <div  *ngIf="toast === true">
+        <div   #alert class="alert alert-danger alert-dismissible fade show" role="alert">
+           <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+             <span aria-hidden="true">&times;</span>
+           </button>
+           <strong>Success!</strong> vous avez supprimer la formation avec succès.
+         </div>
+        </div>
       </div>
       
      
