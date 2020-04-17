@@ -111,14 +111,6 @@
                   <label for="startiong_date">les prérequis</label>
                   <textarea id="trainingRequirements" name="trainingRequirements" class="form-control" value=""  [(ngModel)]="training.requirements" required></textarea>
                 </div>
-                <div class="col-md-4 mb-3">
-                  </div>
-                <div class="col-md-4 mb-3">
-                  </div>
-                <div class="col-md-4 mb-3">
-                  <label for="startiong_date">Prix Total De La Formation</label>
-                  {{training.price}}
-                </div>
                 <button mat-raised-button color="primary" class="mr-2" target="_blank" (click)="addElement()">Ajouter
                   element</button>
                 <button mat-raised-button color="warn" target="_blank" (click)="deleteElement()">supprimer element</button>
@@ -204,7 +196,8 @@
                   <div class="button">
                     <button mat-raised-button color="primary" class="mr-2" routerLink="/default/updateFormation/{{course.id}}" >Modifier</button>
                 
-                    <button mat-raised-button color="warn" routerLink="default/dash" (click)="deleteTraining(course.id)">Supprimer</button>
+                    <button mat-raised-button color="warn" *ngIf="course.elements.length==0"  (click)="deleteTraining(course.id)">Supprimer Formation</button>
+                    <button mat-raised-button color="warn" *ngIf="course.elements.length!=0"  (click)="deleteTraining(course.id)">Supprimer les elements</button>
                   </div>
                
                  
@@ -218,10 +211,10 @@
                     le nombre recommander est:{{course.minNumber}}<br>
                     et le nombre des inscrit est:{{coursesavg[i]}}<br>
                     <div *ngIf="!course.confirmed">
-                      <button mat-raised-button color="primary"  class="mr-2" (click)="declancher(course.id)" routerLink="/default/formation" >déclencher</button>
+                      <button mat-raised-button color="primary"  class="mr-2" (click)="declancher(course.id)"  >déclencher</button>
                     </div>
                     <div *ngIf="course.confirmed" >
-                      <button mat-raised-button color="primary" disabled [ngStyle]="{'background-color':'green'}" class="mr-2" (click)="declancher(course.id)">this course is Confirmed</button>
+                      <button mat-raised-button color="primary" disabled [ngStyle]="{'background-color':'green'}" class="mr-2" (click)="declancher(course.id)">ce coure est Confirmer</button>
                       
                     </div>
                   </div>

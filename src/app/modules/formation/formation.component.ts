@@ -80,6 +80,7 @@ export class FormationComponent implements OnInit {
     this.trainingService.create(this.training).subscribe(data => {
       console.log(data)
     })
+    this.refresh();
   }
 
   addElement() {
@@ -139,6 +140,7 @@ export class FormationComponent implements OnInit {
       error => {
         console.log(error);
       });
+      this.refresh();
 }
 
 
@@ -154,7 +156,11 @@ export class FormationComponent implements OnInit {
   declancher(id) {
     this.trainingService.declancher(id).subscribe(data => {
     });
+    this.refresh();
   }
+  refresh(): void {
+    window.location.reload();
+}
   modifier(t: Training) {
 
     this.modificationTraining = t;

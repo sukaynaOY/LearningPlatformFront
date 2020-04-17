@@ -87,6 +87,7 @@ export class MesformationComponent implements OnInit {
    
       console.log(data)
     })
+    this.refresh();
     //this.router.navigate(['/default/mesformation']);
 
 
@@ -94,6 +95,10 @@ export class MesformationComponent implements OnInit {
     this.toast =true;
   }
   
+
+  refresh(): void {
+    window.location.reload();
+}
   @ViewChild('alert', { static: true }) alert: ElementRef;
 
 closeAlert() {

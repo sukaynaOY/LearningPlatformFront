@@ -122,7 +122,7 @@
                    <div class="col-md-3 text-center pt-4">
                       <p class="h1 font-weight-normal">{{elem.price}} DH</p>
                       <p class="h5 font-weight-light text-muted mb-4">{{elem.startingDate}}</p>
-                      <button mat-raised-button color="warn" (click)='supprimerElement(elem.id)' >supprimer</button>
+                      <button mat-raised-button color="warn" *ngIf="training.confirmed === false" (click)='supprimerElement(elem.id)' >supprimer</button>
                       
                    </div>
    
