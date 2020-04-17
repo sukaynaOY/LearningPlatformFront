@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Training } from 'src/app/models/training';
 import { Trainer } from 'src/app/models/Trainer';
+import { Element } from 'src/app/models/element'
 import { TrainingService } from 'src/app/_services/training.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { DashboardService } from '../../dashboard.service';
@@ -19,7 +20,7 @@ export class UpdateFormationComponent implements OnInit {
 
 
   @Input() currenttrainingId: number;
-  currenttraining: Training;
+  currenttraining: Training = new Training();
   show = false;
   elementTest = new Array<{ key: Element, value: boolean }>();
   currentTrainer: string;
@@ -42,7 +43,7 @@ export class UpdateFormationComponent implements OnInit {
 
       this.currenttraining = <Training>data;
 
-    
+
 
       console.log(this.currenttraining)
 
@@ -57,7 +58,15 @@ export class UpdateFormationComponent implements OnInit {
       console.log(data)
     })
     this.currenttraining = new Training();
-    
+
     console.log(this.modificationTraining);
+  }
+  addElement() {
+    this.currenttraining.elements.push(new Element());
+  }
+  deleteElement() {
+    if (this.currenttraining.elements.length > 0) {
+      this.currenttraining.elements.pop();
+    }
   }
 }
