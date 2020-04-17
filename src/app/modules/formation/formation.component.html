@@ -85,7 +85,7 @@
                     name="hostInstitution" [(ngModel)]="training.hostInstitution" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="hours">Hours</label>
+                  <label for="hours">Heures</label>
                   <input type="text" class="form-control" id="hours" placeholder="Hours" name="hours"
                     [(ngModel)]="training.hours" required>
                 </div>
@@ -100,20 +100,28 @@
                     [(ngModel)]="training.maxNumber" placeholder="Nombre de place max" value="" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="startiong_date">Choose strating date</label>
+                  <label for="startiong_date">Choisissez la date de début</label>
                   <input type="date" id="startingDate" class="form-control" name="startingDate"  value=""  [(ngModel)]="training.startingDate" required/>
                 </div>
                 <div class="col-md-4 mb-3">
-                  <label for="startiong_date">Choose ending date</label>
+                  <label for="startiong_date">Choisissez la date de fin</label>
                   <input type="date" id="endingDate" name="endingDate" class="form-control" value=""  [(ngModel)]="training.endingDate" required/>
                 </div>
+                <div class="col-md-4 mb-3">
+                  <label for="startiong_date">les prérequis</label>
+                  <textarea id="trainingRequirements" name="trainingRequirements" class="form-control" value=""  [(ngModel)]="training.requirements" required></textarea>
+                </div>
+                <div class="col-md-4 mb-3">
+                  </div>
+                <div class="col-md-4 mb-3">
+                  </div>
                 <div class="col-md-4 mb-3">
                   <label for="startiong_date">Prix Total De La Formation</label>
                   {{training.price}}
                 </div>
-                <button mat-raised-button color="primary" class="mr-2" target="_blank" (click)="addElement()">add
+                <button mat-raised-button color="primary" class="mr-2" target="_blank" (click)="addElement()">Ajouter
                   element</button>
-                <button mat-raised-button color="warn" target="_blank" (click)="deleteElement()">delete element</button>
+                <button mat-raised-button color="warn" target="_blank" (click)="deleteElement()">supprimer element</button>
             </div>
             <mat-divider></mat-divider>
 

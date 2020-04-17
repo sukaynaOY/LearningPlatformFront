@@ -33,6 +33,7 @@ export class UpdateFormationComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrenttraining(this.route.snapshot.paramMap.get('id'));
+    console.log(this.currenttraining);
   }
 
   getCurrenttraining(id: string) {
@@ -41,30 +42,22 @@ export class UpdateFormationComponent implements OnInit {
 
       this.currenttraining = <Training>data;
 
-      this.currenttraining.elements.forEach(x => {
-        var test2 = { key: x, value: false }
-      //  this.elementTest.push(test2)
-
-      })
+    
 
       console.log(this.currenttraining)
 
     })
   }
 
-  modifier(t: Training) {
-
-    this.modificationTraining = t;
-    this.modificationTrainingtriger = true;
-    this.modificationTraining.trainer = new Trainer();
-    this.modificationTraining.trainer.id = this.tokenStorageService.getUser().id;
-    console.log(this.modificationTraining);
-  }
-  appliquermodification(t: Training) {
-    this.modificationTrainingtriger = false;
-    this.trainingService.modifier(this.modificationTraining).subscribe(data => {
+  modifier(t) {
+    this.currenttraining.trainer = new Trainer();
+    this.currenttraining.trainer.id = this.tokenStorageService.getUser().id;
+    console.log(this.currenttraining)
+    this.trainingService.modifier(this.currenttraining).subscribe(data => {
       console.log(data)
     })
-    this.modificationTraining = new Training();
+    this.currenttraining = new Training();
+    
+    console.log(this.modificationTraining);
   }
 }

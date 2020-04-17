@@ -26,7 +26,7 @@
               <span class="material-icons pr-2 mr-1">
                 person
               </span>
-             Modifier Formation:</h3>
+              Modifier Formation:</h3>
 
             <!-- Grid row -->
             <div class="row">
@@ -34,53 +34,93 @@
               <!-- Grid column -->
               <div class="col-md-4">
                 <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="NameFirst Name"
+                  <input type="text" class="form-control " name="name" placeholder="Titre"
                     [(ngModel)]="currenttraining.name">
                 </div>
               </div>
-
               <div class="col-md-4">
                 <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="NameFirst Name"
+                  <input type="text" class="form-control " name="name" placeholder="Description"
                     [(ngModel)]="currenttraining.description">
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="NameFirst Name"
+                  <input type="text" class="form-control " name="name" placeholder="Institue"
                     [(ngModel)]="currenttraining.hostInstitution">
                 </div>
               </div>
-
             </div>
             <div class="row">
               <div class="col-md-4">
                 <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="NameFirst Name"
+                  <input type="text" class="form-control " name="name" placeholder="Nomber Max"
                     [(ngModel)]="currenttraining.maxNumber">
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="NameFirst Name"
+                  <input type="text" class="form-control " name="name" placeholder="Namber Min"
                     [(ngModel)]="currenttraining.minNumber">
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="NameFirst Name"
+                  <input type="text" class="form-control " name="name" placeholder="Heures"
                     [(ngModel)]="currenttraining.hours">
                 </div>
               </div>
             </div>
-           
-           
-            
+            <div class="col-md-4">
+              <div class="md-form mb-0">
+                <input type="date" class="form-control " name="name" placeholder="Date de Debut"
+                  [(ngModel)]="currenttraining.startingDate">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="md-form mb-0">
+                <input type="date" class="form-control " name="name" placeholder="Date de Fin"
+                  [(ngModel)]="currenttraining.endingDate">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="md-form mb-0">
+                <textarea type="date" class="form-control " name="name" placeholder="Date de Fin"
+                  [(ngModel)]="currenttraining.requirements"></textarea>
+              </div>
+            </div>
 
             <!-- Grid column -->
 
           </div>
-          <button mat-raised-button color="primary" class="mr-2" (click)="modifier(course)">Modifier</button>
+
+
+          <div *ngFor="let item of currenttraining.elements; let i = index">
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                  <label for="validationDefault01">Sujet</label>
+                  <input type="text" class="form-control" id="validationDefault01" name="subject" [(ngModel)]="item.subject" placeholder="subject"
+                      required>
+              </div>
+      
+              <div class="col-md-4 mb-3">
+                  <label for="validationDefault02">Dure</label>
+                  <input type="number" class="form-control" id="validationDefault02" [(ngModel)]="item.duration" name ="duration" placeholder="Duration" value="DH"
+                      required>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="validationDefault03">Prix</label>
+                  <input type="number" class="form-control" id="validationDefault03" [(ngModel)]="item.price" (change)="firstComponentFunction()" name ="price" placeholder="Price" value="DH"
+                      required>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="startiong_date">Choose strating date</label>
+                  <input type="date" id="startingDate" class="form-control" name="startingDate" value=""  [(ngModel)]="item.startingDate" required/>
+                </div>
+            </div>
+          </div>
+          
+          <button mat-raised-button color="primary" class="mr-2" (click)="modifier()">Modifier</button>
 
           <!-- Grid row -->
 
@@ -110,10 +150,10 @@
     <!-- Grid row -->
 
 
-<!-- Form with header -->
+    <!-- Form with header -->
 
-</section>
-<!--Section: Content-->
+  </section>
+  <!--Section: Content-->
 
 
 </div>

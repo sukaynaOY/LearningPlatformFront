@@ -17,7 +17,9 @@ export class Training {
 
     hours:number;
     
-    price:number; 
+    price:number;
+    
+    requirements:string;
 	
 	startingDate : moment.Moment
 	
