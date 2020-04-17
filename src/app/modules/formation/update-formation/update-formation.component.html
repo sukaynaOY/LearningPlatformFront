@@ -1,8 +1,7 @@
 <div class="container my-5">
 
 
-  <!--Section: Content-->
-  <section class="contact-section dark-grey-text mb-5">
+  <section class="contact-section dark-grey-text mb-5 text-center" >
 
     <style>
       .contact-section .form .btn-floating {
@@ -10,93 +9,102 @@
       }
     </style>
 
-    <!-- Form with header -->
-    <div class="card">
+    <div class="card mr-2">
 
-      <!-- Grid row -->
-      <div class="row">
+      <div class="row mr-2">
 
-        <!-- Grid column -->
-        <div class="col-lg-8">
+        <div class="col-lg-12 mr-2">
 
           <div class="card-body form">
 
             <!-- Header -->
-            <h3 class="font-weight-bold dark-grey-text mt-4">
-              <span class="material-icons pr-2 mr-1">
-                person
-              </span>
-              Modifier Formation:</h3>
+            <h3 class="font-weight-bold my-4">Modifier une Formation</h3>
 
             <!-- Grid row -->
             <div class="row">
 
               <!-- Grid column -->
               <div class="col-md-4">
-                <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="Titre"
+                <div >
+                  <label for="validationDefault01">Nom Formation</label>
+                  <input type="text" class="form-control " name="name" id="validationDefault01" placeholder="Titre"
                     [(ngModel)]="currenttraining.name">
+                   
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="Description"
+                <div >
+                  <label for="validationDefault07">Description</label>
+                  <input type="text" class="form-control "  name="description" id="validationDefault07" placeholder="Description"
                     [(ngModel)]="currenttraining.description">
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="Institue"
+                <div>
+                  <label for="validationDefault02">hostInstitution</label>
+                  <input type="text" class="form-control " id="validationDefault02" name="hostInstitution" placeholder="Institue"
                     [(ngModel)]="currenttraining.hostInstitution">
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-4">
-                <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="Nomber Max"
+                <div >
+                  <label for="maxNumber">Nombre de place max</label>
+                  <input type="text" class="form-control " id="maxNumber" name="maxNumber" placeholder="Nombre de place max"
                     [(ngModel)]="currenttraining.maxNumber">
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="Namber Min"
+                <div>
+                  <label for="minNumber">Nombre de place min</label>
+                  <input type="text" class="form-control " id="minNumber" name="minNumber"  placeholder="Nombre de place min"
                     [(ngModel)]="currenttraining.minNumber">
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="md-form mb-0">
-                  <input type="text" class="form-control " name="name" placeholder="Heures"
+                <div >
+                  <label for="hours">Heures</label>
+                  <input type="text" class="form-control " id="hours" name="hours" placeholder="Heures"
                     [(ngModel)]="currenttraining.hours">
                 </div>
               </div>
             </div>
+            <div class="row">
             <div class="col-md-4">
-              <div class="md-form mb-0">
-                <input type="date" class="form-control " name="name" placeholder="Date de Debut"
+              <div >
+                <label for="startiong_date">Choisissez la date de début</label>
+                <input type="date" class="form-control "  name="startingDate" placeholder="Date de Debut"
                   [(ngModel)]="currenttraining.startingDate">
               </div>
             </div>
             <div class="col-md-4">
-              <div class="md-form mb-0">
-                <input type="date" class="form-control " name="name" placeholder="Date de Fin"
+              <div >
+                <label for="startiong_date">Choisissez la date de fin</label>
+                <input type="date" class="form-control "  name="endingDate"  placeholder="Date de Fin"
                   [(ngModel)]="currenttraining.endingDate">
               </div>
             </div>
             <div class="col-md-4">
-              <div class="md-form mb-0">
-                <textarea type="date" class="form-control " name="name" placeholder="Date de Fin"
+              <div >
+                <label for="startiong_date">les prérequis</label>
+                <textarea type="date" class="form-control " name="trainingRequirements" placeholder="Date de Fin"
                   [(ngModel)]="currenttraining.requirements"></textarea>
               </div>
+            </div>
             </div>
 
             <!-- Grid column -->
 
           </div>
+        <div class="ml-3">
+          <h4 class="font-weight-bold text-left indigo-text mb-5"><span class="material-icons">
+            list
+            </span> Liste des eléments</h4>
 
 
-          <div *ngFor="let item of currenttraining.elements; let i = index">
-            <div class="form-row">
+          <div *ngFor="let item of currenttraining.elements; let i = index" class="mr-2">
+            <div class="form-row mr-2">
               <div class="col-md-4 mb-3">
                   <label for="validationDefault01">Sujet</label>
                   <input type="text" class="form-control" id="validationDefault01" name="subject" [(ngModel)]="item.subject" placeholder="subject"
@@ -117,45 +125,26 @@
                   <label for="startiong_date">Choose strating date</label>
                   <input type="date" id="startingDate" class="form-control" name="startingDate" value=""  [(ngModel)]="item.startingDate" required/>
                 </div>
+                <hr>
             </div>
-          </div>
-          <button mat-raised-button color="primary" class="mr-2" target="_blank" (click)="addElement()">add element</button>
-          <button mat-raised-button color="warn" target="_blank" (click)="deleteElement()">delete element</button>
-          <button mat-raised-button color="primary" class="mr-2" routerLink="/default/formation" (click)="modifier()">Modifier</button>
-          <button mat-raised-button color="primary" class="mr-2" routerLink="/default/formation">annuler</button>
-
-          <!-- Grid row -->
-
-          <!-- Grid row -->
-          <div class="row">
-
-            <!-- <div *ngIf="modificationTrainingtriger">
-              <p *ngFor="let elem of modificationTraining.elements; let i = index">
-                <app-element [element]="modificationTraining.elements[i]"></app-element>
-              </p>
-              <button mat-raised-button color="primary" class="mr-2" (click)="appliquermodification()"
-                routerLink="/default/formation">Modifier</button>
-            </div> -->
-
-            <!-- Grid column -->
+            <hr>
 
           </div>
-          <!-- Grid row -->
+        </div>
+        
+          <button class="btn btn-success btn-md ml-0 mr-2"  target="_blank" (click)="addElement()">add element</button>
+          <button class="btn btn-danger btn-md ml-0 mr-2"  target="_blank" (click)="deleteElement()">delete element</button>
+          
+          <button class="btn btn-primary btn-md ml-0 mr-2"   (click)="modifier()" routerLink="/default/formation" >Modifier</button>
+          <button class="btn btn-warning btn-md ml-0 mr-2"   routerLink="/default/formation">annuler</button>
+
 
 
         </div>
 
       </div>
-      <!-- Grid column -->
-
+   
     </div>
-    <!-- Grid row -->
-
-
-    <!-- Form with header -->
 
   </section>
-  <!--Section: Content-->
-
-
 </div>

@@ -1,5 +1,5 @@
 <div class="container my-3 py-3 ">
-  <h2 class="h1 text-center mb-5">Evaluer les formations</h2>
+  <h2 class="h1 text-center mb-5 dark-grey-text">Evaluer les formations</h2>
 
   <div class="container my-5 z-depth-1" *ngIf ="courses.length===0">
 
@@ -17,10 +17,8 @@
 
         <div class="col-md-7 mb-lg-0 mb-4">
   
-          <!-- Form -->
           <form class="" action="">
   
-            <!-- Section heading -->
             <h3 class="font-weight-bold my-3">
               Il n'y a aucune information à évaluer</h3>
             
@@ -28,40 +26,28 @@
    
             
           </form>
-          <!-- Form -->
   
         </div>
-        <!-- Grid column -->
   
       </div>
-      <!-- Grid row -->
       
     </section>
-    <!--Section: Content-->
-  
-  
   </div>
-
-  <!--Section: Content-->
   <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
-
-    <!-- Main navigation -->
-
-
 
     <div *ngFor="let training of courses; let i = index;">
  
       <div class="container pt-1 my-5 ">
         <section class="p-md-3 mx-md-5">
           <div class="row d-flex justify-content-between align-items-center">
-            <div class="col-md-6 mb-4">
+            <div class="col-md-8 mb-4">
               <h2 class="font-weight-bold mb-3 red-text">{{training.name}}</h2>
               <p class="text-muted pt-3">
                
                 {{training.description}}
               </p>
             </div>
-            <div class="col-md-6 col-lg-4 d-flex justify-content-center mb-md-0 mb-5">
+            <div class="col-md-4 col-lg-4 d-flex justify-content-center mb-md-0 mb-5">
               <img src="../../../assets/Online-Learning-Logo.png">
             </div>
           </div>
@@ -72,7 +58,7 @@
                 {{training.price}} Dirham
               </h5>
               <p class="text-muted mb-lg-0">
-Le prix total du formation              </p>
+          Le prix total du formation  </p>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
               <h5 class="font-weight-bold mb-3">
@@ -106,14 +92,11 @@ Le nombre total des elements du cour              </p>
 
           <h2 class="h1 text-center mb-5 blue-text"> Evaluate Formation</h2>
         
-          <!--Section: Content-->
           <section class="text-center">
         
         
-            <!--Grid row-->
             <div class="row">
         
-              <!--Grid column-->
               <div class="col-lg-4 col-md-12 mb-4" *ngFor="let item of trainer">
         
                 <a href="" class="waves-effect waves-light"><img src="{{item.img}}" class="img-fluid img3" alt=""></a>
@@ -221,7 +204,7 @@ Le nombre total des elements du cour              </p>
       
       <div class=" col-md-12 text-center  white-text">
 
-        <a class="btn btn-info btn-md" (click)="showelement(i)" role="button"> Evaluate Formation</a>
+        <a class="btn btn-info btn-md" (click)="showelement(i)" role="button"> Evaluer Formation</a>
 
       </div>
 

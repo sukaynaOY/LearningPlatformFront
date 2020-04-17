@@ -1,26 +1,17 @@
-<!-- <div *ngFor="let training of myTraining">
-        training Name: {{training.name}}
-    <div *ngFor="let element of training.elements"> Element:{{element.subject}}</div>
-
-</div> -->
 
 <div class="container my-3 py-3 " >
 
-  <h2 class="h1 text-center mb-5">Mes formartions</h2>
-  <!--Section: Content-->
+  <h2 class=" text-center font-weight-bold  dark-grey-text mb-5">Mes formartions</h2>
 
   
     
   <div class="container my-5 z-depth-1" *ngIf ="courses.length===0">
 
 
-    <!--Section: Content-->
     <section class="dark-grey-text p-5">
   
-      <!-- Grid row -->
       <div class="row">
   
-        <!-- Grid column -->
         <div class="col-md-5 mb-4 mb-md-0">
   
           <div class="view">
@@ -28,9 +19,6 @@
           </div>
   
         </div>
-        <!-- Grid column -->
-  
-        <!-- Grid column -->
         <div class="col-md-7 mb-lg-0 mb-4">
   
           <!-- Form -->
@@ -60,9 +48,11 @@
   <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text" *ngIf ="courses.length==!0">
       
 
-    <h3 class="font-weight-bold">Course title</h3>
+    <h3 class="font-weight-bold">
+      Titre des cours</h3>
 
-     <p class="text-muted mb-5">Here is the list of courses that  you have chosen.</p> 
+     <p class="text-muted mb-5">
+      Voici la liste des cours que vous avez choisis.</p> 
 
     <!--Grid row-->
     <div  *ngFor="let training of courses; let i = index;" >
@@ -84,19 +74,19 @@
           <p class="dark-grey-text">{{training.description}}
            .</p>
           <!-- Post data -->
-          <p> <a class="font-weight-bold">Instituation Name :</a> {{training.hostInstitution}}
+          <p> <a class="font-weight-bold">
+            Nom de l'institution :</a> {{training.hostInstitution}}
           </p>
-          <p><a class="font-weight-bold"> starting Date : </a> {{training.startingDate}}
+          <p><a class="font-weight-bold"> Date de début : </a> {{training.startingDate}}
 
           </p>
-          <p><a class="font-weight-bold">Ending Date :  </a> {{training.endingDate}}
+          <p><a class="font-weight-bold">Date de fin :  </a> {{training.endingDate}}
            
           </p>
-          <p> <a class="font-weight-bold">state of Training :</a>
-            <span class="badge badge-success product mb-4 ml-xl-0 ml-4" *ngIf="training.confirmed === true">CONFIRMED</span>
-            <span class="badge badge-danger product mb-4 ml-2" *ngIf="training.confirmed === false">NOT CONFIRMED</span>
+          <p> <a class="font-weight-bold">Etat de la formation:</a>
+            <span class="badge badge-success product mb-4 ml-xl-0 ml-4" *ngIf="training.confirmed === true">CONFIRMER</span>
+            <span class="badge badge-danger product mb-4 ml-2" *ngIf="training.confirmed === false">NON CONFIRMER</span>
 
-            <!-- {{training.confirmed? 'CONFIRMED' : 'NOT CONFIRMED'}} -->
           </p>
 
   
@@ -112,9 +102,11 @@
              <div class="card-body p-0">
                 <div class="row mx-0">
                    <div class="col-md-8 grey lighten-4 rounded-left pt-4">
-                      <h5 class="font-weight-bold"> {{elem.subject}} </h5>
-                      <p class="font-weight-light text-muted mb-4">la duré d'element est 
+                      <h5 class="font-weight-bold">  Le titre d'element
+                      </h5>
+                      <p class="font-weight-light text-muted mb-4"> {{elem.subject}}
                         <span class="badge badge-success product mb-4 ml-2 "> {{elem.duration}} heurs</span>
+
 
                         </p>
 

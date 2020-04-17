@@ -47,16 +47,8 @@
                        [(ngModel)]="currentUser.lastName">
                     </div>
                   </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                
-                <!-- Grid column -->
-
+              
               </div>
-              <!-- Grid row -->
-
-              <!-- Grid row -->
               <div class="row">
 
                 <!-- Grid column -->
@@ -72,19 +64,10 @@
 
                     </div>
                   </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-              
-                <!-- Grid column -->
 
               </div>
-              <!-- Grid row -->
-
-              <!-- Grid row -->
               <div class="row">
 
-                <!-- Grid column -->
                 <div class="col-md-6">
                   <div class="md-form mb-0">
                     <input type="text"  class="form-control "  name="username" [(ngModel)]="currentUser.username" placeholder="nom d'utilisateur">
@@ -92,7 +75,6 @@
                 </div>
                 <div class="col-md-6">
             <div class="md-form mb-0">
-                        <!-- <label for="file">Votre CV</label> -->
                         <input type="file" id="customFile" (change)="selectFile($event)" class="form-control " accept=".pdf">
     
                     </div> 
@@ -119,18 +101,18 @@
               <h3 class="font-weight-bold my-4 pb-2">Informations de Contact</h3>
               <ul class="text-lg-left list-unstyled ml-4">
                 <li>
-                  <p><span class="material-icons pr-2 mr-1">
+                  <p><span class="material-icons">
                     person
                     </span>{{currentUser.firstName}}</p>
                 </li>
                 <li>
                   <p><span class="material-icons">
-                    N telephone
+                    telephone
                     </span> {{currentUser.phone}}</p>
                 </li>
                 <li>
                   <p><span class="material-icons">
-                    e-mail
+                    mail
                     </span> {{currentUser.email}}</p>
                 </li>
               </ul>

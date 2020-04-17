@@ -101,7 +101,8 @@
 
                                     <!-- Form -->
 
-                                    <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Sign up</h3>
+                                    <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">
+                                        S'inscrire</h3>
 
 
 
@@ -113,17 +114,17 @@
                                                 placeholder="First Name *" />
                                             <div class="alert alert-danger" role="alert"
                                                 *ngIf="f.submitted && firstname.invalid">
-                                                First Name is required!
+                                                Le prénom est requis!
                                             </div>
                                         </div>
                                         <div class="col">
                                             <!-- Last name -->
-                                                <input type="text" name="lastName"[(ngModel)]="form.lastName" required
+                                                <input type="text" name="Nom de famille"[(ngModel)]="form.lastName" required
                                                 #lastName="ngModel" class="form-control mb-4"
                                                 placeholder="Last Name *" />
                                             <div class="alert alert-danger" role="alert"
                                                 *ngIf="f.submitted && lastName.invalid">
-                                                Last Name is required!
+                                                Le nom est requis!
                                             </div>
                                         </div>
                                     </div>
@@ -133,7 +134,7 @@
                                             #email="ngModel" class="form-control mb-4" placeholder="Email *" />
                                         <div class="alert alert-danger" role="alert"
                                             *ngIf="f.submitted && email.invalid">
-                                            Email is required!
+                                            Email est requis!
                                         </div>
                                     </div>
 
@@ -145,7 +146,7 @@
                                             placeholder="Username" />
                                         <div class="alert alert-danger" role="alert"
                                             *ngIf="f.submitted && username.invalid">
-                                            Username is required!
+                                            Nom d'utilisateur est requis!
                                         </div>
                                     </div>
 
@@ -155,9 +156,10 @@
                                         
                                         <div class="alert alert-danger" role="alert"
                                         *ngIf="f.submitted && phone.invalid" >
-                                        <div *ngIf="phone.errors.required">Phone is required</div>
+                                        <div *ngIf="phone.errors.required">Numero is required</div>
                                         <div *ngIf="phone.errors.minlength">
                                             Phone must be at least 10 characters
+
                                         </div>
                                     </div>
                                     </div>
@@ -165,13 +167,13 @@
 
                                     <div class="form-group">
                                         <input type="password" name="password" [(ngModel)]="form.password"
-                                            class="form-control mb-4" placeholder="Password *" required minlength="6"
+                                            class="form-control mb-4" placeholder="Mot de passe *" required minlength="6"
                                             #password="ngModel">
                                         <div class="alert alert-danger" role="alert"
                                             *ngIf="f.submitted && password.invalid">
-                                            <div *ngIf="password.errors.required">Password is required</div>
+                                            <div *ngIf="password.errors.required">Le mot de passe est obligatoire</div>
                                             <div *ngIf="password.errors.minlength">
-                                                Password must be at least 6 characters
+                                                Le mot de passe doit être au moins de 6 caractères
                                             </div>
                                         </div>
                                     </div>
@@ -200,10 +202,10 @@
                                     </div>
                                     <div class="text-center">
                                         <button type="submit"
-                                            class="btn btn-outline-orange btn-rounded my-4 waves-effect">Register</button>
+                                            class="btn btn-outline-orange btn-rounded my-4 waves-effect">Enregistrer</button>
 
                                         <button routerLink="/login" type="button"
-                                            class="btn btn-outline-orange btn-rounded my-4 waves-effect">Login</button>
+                                            class="btn btn-outline-orange btn-rounded my-4 waves-effect">S'identifier</button>
 
                                     </div>
 
@@ -213,7 +215,7 @@
                                            <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
                                              <span aria-hidden="true">&times;</span>
                                            </button>
-                                           <strong>Error!</strong>  {{ errorMessage }}
+                                           <strong>Erreur!</strong>  {{ errorMessage }}
                                          </div>
                                         </div>
                                    

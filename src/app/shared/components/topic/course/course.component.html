@@ -10,7 +10,8 @@
 
             <div class="container py-2 my-2">
                 <section class="p-md-1 mx-md-5 text-center text-lg-left">
-                    <h2 class="h1 text-center mb-5"> All Courses</h2>
+                    <h2 class="h1 text-center mb-5 dark-grey-text"> 
+                      Tous les cours</h2>
       <div class="row">
                     <div class="col-lg-4 mb-4" *ngFor="let course of courses">
                       <div class="card text-center">
@@ -24,14 +25,16 @@
                         <i class="fa fa-book fa-2x pt-5 indigo-text"></i>
                         <div class="card-body">
                           <p class="lead font-weight-bold">Institution :{{ course.hostInstitution }}</p>
+                          <p class="lead font-weight-bold">Les prérequis :{{ course.requirements }}</p>
+
                            <div class="button">
-                            <button mat-raised-button color="primary" routerLink="/default/coursedetail/{{course.id}}" >Learn more</button>
+                            <button mat-raised-button color="primary" routerLink="/default/coursedetail/{{course.id}}" >Lire encore</button>
                           </div> 
                         </div>
                         <div class="card-footer pb-0">
                           <div class="row mb-0">
                             <div class="text-right">
-                              <span class="badge badge-primary mb-2 fl mr-5 ">Total Hour :{{ course.hours }}</span>
+                              <span class="badge badge-primary mb-2 fl mr-5 ">Total heurs :{{ course.hours }}</span>
                             </div>
                             <div>
                             <h6 class="ml-5 mb-0 pb-0 mt-1 font-weight-bold"><span class="red-text"><strong>{{ course.startingDate }}</strong></span>

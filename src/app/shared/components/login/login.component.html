@@ -80,64 +80,52 @@
   </header>
   <!-- Navigation -->
 <div class="mt-4"style="background-image: url('../../../../assets/background.jfif'); background-repeat: no-repeat; background-size: cover;">
-  <!-- Mask & flexbox options-->
-   <!-- Mask & flexbox options-->
+ 
    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
 
     <div class="container my-5 px-0 z-depth-1">
 
-      <!--Section: Content-->
       <section
       >
         <form class="my-5 mx-md-5"  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
     
           <div class="row">
             <div class="col-md-6 mx-auto">
-              <!-- Material form login -->
               <div class="card">
     
-                <!--Card content-->
                 <div class="card-body">
     
-                  <!-- Form -->
     
-                    <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">Log In</h3>
+                    <h3 class="font-weight-bold my-4 pb-2 text-center dark-grey-text">
+                      S'identifier</h3>
     
                     <div class="form-group">
                       <input type="text" class="form-control mb-" name="username" [(ngModel)]="form.username" required
-                        #username="ngModel" placeholder="Username" />
+                        #username="ngModel" placeholder="Nom d'utilisateur " />
                       <div class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid">
-                        Username is required!
+                        Nom d'utilisateur est obligatoire!
                       </div>
                     </div>
 
-                    <!-- Name 
-                    <input type="text" name="username" [(ngModel)]="form.username" class="form-control mb-4" >
-    -->
-                    <!-- Email 
-                    <input type="password" name="password" [(ngModel)]="form.password" class="form-control" placeholder="Password">
-                    <small id="passwordHelpBlock" class="form-text text-right blue-text">
-                      <a href="">Recover Password</a>
-                    </small>
-                  -->
                   <div class="form-group">
                     <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
-                      minlength="6" #password="ngModel"  placeholder="Password"/>
+                      minlength="6" #password="ngModel"  placeholder="Mot de passe"/>
                     <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
-                      <div *ngIf="password.errors.required">Password is required</div>
+                      <div *ngIf="password.errors.required">Le mot de passe est obligatoire</div>
                       <div *ngIf="password.errors.minlength">
-                        Password must be at least 6 characters
+                        Le mot de passe doit être au moins de 6 caractères
                       </div>
                     </div>
                   </div>
                     <div class="text-center">
-                      <button  routerLink="/signup" type="button" class="btn btn-outline-orange btn-rounded my-4 waves-effect">Register</button>
-                      <button  type="submit" class="btn btn-outline-orange btn-rounded my-4 waves-effect">Login</button>
+                      <button  routerLink="/signup" type="button" class="btn btn-outline-orange btn-rounded my-4 waves-effect">Enregistrer</button>
+                      <button  type="submit" class="btn btn-outline-orange btn-rounded my-4 waves-effect">
+                        S'identifier</button>
                
                     </div>
                     <div class="form-group">
                       <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
-                        Login failed: {{ errorMessage }}
+                        Échec de la connexion: {{ errorMessage }}
                       </div>
                     </div>
                     
@@ -146,12 +134,10 @@
                     </p>
                     
                   
-                  <!-- Form -->
     
                 </div>
     
               </div>
-              <!-- Material form login -->
             </div>
             
           </div>
@@ -159,7 +145,6 @@
         </form>
     
       </section>
-      <!--Section: Content-->
     
     
     </div>

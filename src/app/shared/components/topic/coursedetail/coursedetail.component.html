@@ -1,7 +1,8 @@
 <div>
    <div class="container mt-1">
          <section class="p-md-3 mx-md-5 dark-grey-text">
-            <h2 class="text-center font-weight-bold mb-4 pb-2">Formation  Elements & details</h2>
+            <h2 class="text-center font-weight-bold mb-4 pb-2">
+               Les détails de la formation et ses éléments</h2>
 
       
              <!-- Grid column -->
@@ -31,12 +32,18 @@
                  <p class="dark-grey-text">{{currenttraining?.description}}
                   .</p>
                  <!-- Post data -->
-                 <p> <a class="font-weight-bold">Instituation Name :</a> {{currenttraining?.hostInstitution}}
+                 <p> <a class="font-weight-bold">
+                  Nom de l'institution :</a> {{currenttraining?.hostInstitution}}
                  </p>
-                 <p><a class="font-weight-bold"> starting Date : </a> {{currenttraining?.startingDate}}
+                 <p> <a class="font-weight-bold">
+                  Les prérequis :</a>{{ currenttraining?.requirements }}
+                 </p> 
+                 <p><a class="font-weight-bold"> 
+                  Date de début : </a> {{currenttraining?.startingDate}}
 
                  </p>
-                 <p><a class="font-weight-bold">Ending Date :  </a> {{currenttraining?.endingDate}}
+                 <p><a class="font-weight-bold">
+                  Date de fin :  </a> {{currenttraining?.endingDate}}
                   <p><a class="font-weight-bold" [href]="'/assets/benebene.pdf'" target="_blank" > CV de Formateur</a>
                   
                  </p>
@@ -65,10 +72,8 @@
                         <div class="card-body p-0">
                            <div class="row mx-0">
                               <div class="col-md-8 grey lighten-4 rounded-left pt-4">
-                                 <h5 class="font-weight-bold"> {{elem.key.subject}} </h5>
-                                 <p class="font-weight-light text-muted mb-4">Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit. Quibusdam vitae, fuga similique quos aperiam
-                                    tenetur quo ut rerum debitis.</p>
+                                 <h5 class="font-weight-bold"> Le titre du sujet</h5>
+                                 <p class="font-weight-light text-muted mb-4">{{elem.key.subject}} .</p>
                                     <div class="text-right">
                                     <span class="badge badge-success product mb-4 ml-2 ">{{elem.key.duration}} min</span>
                                  </div>
