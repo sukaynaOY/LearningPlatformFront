@@ -16,6 +16,7 @@ import { EventEmitterService } from './_services/event-emitter.service';
 import { MatDividerModule, MatToolbarModule, MatDialogModule,MatIconModule, MatButtonModule, MatMenuModule, MatListModule } from '@angular/material';
 import { ToastrModule } from 'ngx-toastr';
 import { UpdateFormationComponent } from './modules/formation/update-formation/update-formation.component';
+import { ChercherformationComponent } from './modules/chercherformation/chercherformation.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { UpdateFormationComponent } from './modules/formation/update-formation/u
     ListRatingComponent,
     RatingComponent,
     UpdateFormationComponent,
+    ChercherformationComponent,
     
   ],
   imports: [

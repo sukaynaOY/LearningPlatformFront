@@ -16,6 +16,7 @@ import { MesformationComponent } from './shared/components/mesformation/mesforma
 import { PostsComponent } from './modules/posts/posts.component';
 import { MonprofileComponent } from './shared/components/monprofile/monprofile.component';
 import { UpdateFormationComponent } from './modules/formation/update-formation/update-formation.component';
+import { ChercherformationComponent } from './modules/chercherformation/chercherformation.component';
 
 const routes: Routes = [
   {
@@ -86,7 +87,12 @@ const routes: Routes = [
       {
         path: 'monprofile',
         component: MonprofileComponent
+      },
+      {
+        path: 'chercherformation',
+        component: ChercherformationComponent
       }
+      
     ]
   }
 

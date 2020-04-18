@@ -4,7 +4,9 @@ import { TrainerService } from 'src/app/_services/trainer.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/_services/user.service';
+import { NotificationService } from 'src/app/_services/notification.service';
 import {FormControl, Validators} from '@angular/forms'; 
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-monprofile',
@@ -21,12 +23,12 @@ export class MonprofileComponent implements OnInit {
   selectedFile = null;
   changeImage = false;
   pdfSrc = "/Users/anaslaamarti/benebene.pdf";
-  constructor(private tokenStorageService: TokenStorageService,private trainerService : TrainerService) { }
+  constructor(private tokenStorageService: TokenStorageService,private trainerService : TrainerService, private userService: UserService,private notificationService: NotificationService, private toastr: ToastrService) { }
   currentUser : any;
 
   ngOnInit() {
 
-  this.trainerService.getTrainer(this.tokenStorageService.getUser().id).subscribe(data =>{
+  this.userService.getUser(this.tokenStorageService.getUser().id).subscribe(data =>{
 
     this.currentUser = data;
   })
@@ -43,9 +45,11 @@ export class MonprofileComponent implements OnInit {
   }
 
   updateTrainer(){
-    this.trainerService.updateTrainer(this.currentUser).subscribe(data =>{
+    this.userService.updateUser(this.currentUser).subscribe(data =>{
       if(this.selectedFiles != null)
       this.upload()
+
+      this.notificationService.showSuccess("Votre profile à été changé avec succès","Modification");
     })
 
   }

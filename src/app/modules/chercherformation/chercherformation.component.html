@@ -1,0 +1,176 @@
+<!-- 
+<input [(ngModel)]="searchText" >
+{{searchText}}
+<button (click)="search()">Chercher</button>
+
+
+<div *ngIf="showResult" > 
+
+<div *ngFor="let training of filtredTraining">
+    {{training.name}}
+    {{training.elements.length}}
+</div>
+    
+</div> -->
+<!-- <div *ngFor="let training of myTraining">
+        training Name: {{training.name}}
+    <div *ngFor="let element of training.elements"> Element:{{element.subject}}</div>
+
+</div> -->
+
+<div class="container my-3 py-3 " >
+
+    <h2 class="h1 text-center mb-5">Rechercher</h2>
+    <!--Section: Content-->
+  
+    <div style="margin-left: 40rem;">
+        <input [(ngModel)]="searchText" >
+
+        <button (click)="search()" style="margin-left: 1.2rem;">Chercher</button>
+    </div>
+    
+    <div class="container my-5 z-depth-1" *ngIf ="filtredTraining.length ===0">
+  
+  
+      <!--Section: Content-->
+      <section class="dark-grey-text p-5">
+    
+        <!-- Grid row -->
+        <div class="row">
+    
+          <!-- Grid column -->
+          <div class="col-md-5 mb-4 mb-md-0">
+    
+            <div class="view">
+              <img src="https://mdbootstrap.com/img/illustrations/undraw_Group_chat_unwm.svg" class="img-fluid" alt="smaple image">
+            </div>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-7 mb-lg-0 mb-4">
+    
+            <!-- Form -->
+            <form class="" action="">
+    
+              <!-- Section heading -->
+              <h3 class="font-weight-bold my-3">
+                Il n'y a aucune information </h3>
+              
+              <p class="text-muted mb-4 pb-2">Aucun course trouve.</p>
+     
+              
+            </form>
+            <!-- Form -->
+    
+          </div>
+          <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+        
+      </section>
+      <!--Section: Content-->
+    
+    
+    </div>
+    <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text" *ngIf ="filtredTraining.length > 0">
+        
+  
+      <!-- <h3 class="font-weight-bold">Course title</h3> -->
+  
+       <p class="text-muted mb-5">Voici la liste des cours trouve.</p> 
+  
+      <!--Grid row-->
+      <div  *ngFor="let training of filtredTraining; let i = index;" >
+        <div class="row" >
+  
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-12 mb-lg-0 mb-4">
+  
+            <img src="../../../../assets/elearining.png" class="img-fluid" alt="">
+  
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-6 mb-lg-0 mb-lg-0 mb-2">
+  
+            <h4 class="font-weight-bold mb-3"><strong>{{training.name}}</strong></h4>
+            <!-- Excerpt -->
+            <p class="dark-grey-text">{{training.description}}
+             .</p>
+            <!-- Post data -->
+            <p> <a class="font-weight-bold">Instituation Name :</a> {{training.hostInstitution}}
+            </p>
+            <p><a class="font-weight-bold"> starting Date : </a> {{training.startingDate}}
+  
+            </p>
+            <p><a class="font-weight-bold">Ending Date :  </a> {{training.endingDate}}
+             
+            </p>
+            <p> <a class="font-weight-bold">state of Training :</a>
+              <!-- <span class="badge badge-success product mb-4 ml-xl-0 ml-4" *ngIf="training.confirmed === true">CONFIRMED</span>
+              <span class="badge badge-danger product mb-4 ml-2" *ngIf="training.confirmed === false">NOT CONFIRMED</span>
+   -->
+              <!-- {{training.confirmed? 'CONFIRMED' : 'NOT CONFIRMED'}} -->
+            </p>
+  
+    
+            
+  
+          </div>
+   
+  
+        </div>
+        <div >
+          <div class="col-12 mb-4" *ngFor="let elem of training.elements" >
+            <div class="card z-depth-0 bordered border-light">
+               <div class="card-body p-0">
+                  <div class="row mx-0">
+                     <div class="col-md-8 grey lighten-4 rounded-left pt-4">
+                        <h5 class="font-weight-bold"> {{elem.subject}} </h5>
+                        <p class="font-weight-light text-muted mb-4">la duré d'element est 
+                          <span class="badge badge-success product mb-4 ml-2 "> {{elem.duration}} heurs</span>
+  
+                          </p>
+  
+                     </div>
+                     <div class="col-md-3 text-center pt-4">
+                        <p class="h1 font-weight-normal">{{elem.price}} DH</p>
+                        <p class="h5 font-weight-light text-muted mb-4">{{elem.startingDate}}</p>
+                        <!-- <button mat-raised-button color="warn" (click)='supprimerElement(elem.id)' >supprimer</button> -->
+                        
+                     </div>
+     
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+       <!-- toast -->
+        </div>
+        
+       
+        <!-- <div class="button  col-md-12 text-center">
+          <button mat-raised-button color="primary" (click)="showelement(i)" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" 
+          ><span>{{isCollapsed ? 'Afficher les elements' : 'Annuler'}}</span></button>
+  
+        
+       </div> -->
+        <hr>
+      </div>
+   
+      <!--Grid row-->
+  
+  
+    </section>
+    <!--Section: Content-->
+  
+  
+  </div>
+
+
+
