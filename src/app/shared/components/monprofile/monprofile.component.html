@@ -73,7 +73,7 @@
                     <input type="text"  class="form-control "  name="username" [(ngModel)]="currentUser.username" placeholder="nom d'utilisateur">
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" *ngIf="currentUser.role=='ROLE_FORMATEUR'">
             <div class="md-form mb-0">
                         <input type="file" id="customFile" (change)="selectFile($event)" class="form-control " accept=".pdf">
     
@@ -85,7 +85,8 @@
 
               </div>
               <!-- Grid row -->
-              <button mat-raised-button color="primary" class="mr-2" (click)="updateTrainer()">Modifier</button>
+              <button mat-raised-button color="primary" class="mr-2" *ngIf="currentUser.role=='ROLE_FORMATEUR'" routerLink="/default/formation" (click)="updateTrainer()">Modifier</button>
+              <button mat-raised-button color="primary" class="mr-2" *ngIf="currentUser.role!='ROLE_FORMATEUR'" routerLink="/default/course" (click)="updateTrainer()">Modifier</button>
 
 
             </div>

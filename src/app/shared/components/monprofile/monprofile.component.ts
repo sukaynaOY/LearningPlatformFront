@@ -22,7 +22,7 @@ export class MonprofileComponent implements OnInit {
   progress: { percentage: number } = { percentage: 0 };
   selectedFile = null;
   changeImage = false;
-  pdfSrc = "/Users/anaslaamarti/benebene.pdf";
+  pdfSrc = "C:\Users\ALAA-EDINE\Desktop\angular\LearningPlatformFront\src\assets\aemoghar.pdf";
   constructor(private tokenStorageService: TokenStorageService,private trainerService : TrainerService, private userService: UserService,private notificationService: NotificationService, private toastr: ToastrService) { }
   currentUser : any;
 
@@ -37,7 +37,7 @@ export class MonprofileComponent implements OnInit {
   }
 
   downloadFile() {
-    this.trainerService.getfile("benebene").subscribe(data => {
+    this.trainerService.getfile("aemoghar").subscribe(data => {
       let fileURL = URL.createObjectURL(data);
       window.open(fileURL, '_blank');
     })
